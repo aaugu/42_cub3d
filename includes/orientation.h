@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_error.c                                    :+:      :+:    :+:   */
+/*   orientation.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 11:46:10 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/11 11:47:13 by aaugu            ###   ########.fr       */
+/*   Created: 2023/09/11 11:04:47 by aaugu             #+#    #+#             */
+/*   Updated: 2023/09/11 12:11:57 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#ifndef ORIENTATION_H
+# define ORIENTATION_H
 
-t_map	parsing_error(char *str, char *arg, t_map *map)
+/******************************************************************************
+*							    	ENUM									  *
+******************************************************************************/
+
+typedef enum e_orientation
 {
-	if (arg)
-		printf("%s: %s", arg, str);
-	else
-		printf("%s", str);
-	return (*map);
-}
+	NORTH,
+	WEST,
+	SOUTH,
+	EAST
+}	t_orientation;
+
+#endif

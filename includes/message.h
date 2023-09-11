@@ -6,19 +6,17 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:19:13 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/11 11:21:35 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/11 14:42:08 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MESSAGE_H
 # define MESSAGE_H
 
-# include "player_orientation.h"
-
 /******************************************************************************
 *							    FUNCTIONS									  *
 ******************************************************************************/
 
-int	msg(char *str, char *arg, int exit_code);
+int	msg(char *arg, char *str, int exit_code);
 
 #endif

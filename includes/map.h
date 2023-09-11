@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_orientation.h                               :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 11:04:47 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/11 11:07:26 by aaugu            ###   ########.fr       */
+/*   Created: 2023/09/11 14:00:22 by aaugu             #+#    #+#             */
+/*   Updated: 2023/09/11 14:17:59 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_ORIENTATION_H
-# define PLAYER_ORIENTATION_H
+#ifndef MAP_H
+# define MAP_H
 
 /******************************************************************************
-*							    STRUCTURE									  *
+*							    STRUCTURES									  *
 ******************************************************************************/
 
-typedef enum e_orientation
+typedef struct s_map
 {
-	NORTH,
-	WEST,
-	SOUTH,
-	EAST
-}	t_orientation;
+	int				width;
+	int				height;
+	int				player[2];
+	int				f_color[3];
+	int				c_color[3];
+	t_orientation	orientation;
+	char			*north;
+	char			*south;
+	char			*west;
+	char			*east;
+	char			**layout;
+}					t_map;
 
 #endif
