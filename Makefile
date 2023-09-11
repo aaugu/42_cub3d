@@ -11,7 +11,7 @@ WHITE	=	\033[0;37m
 CYAN_B	=	\033[1;96m
 GREEN_B	=	\033[1;92m
 
-NAME	=	cub3d
+NAME	=	cub3D
 CC		=	gcc
 FLAGS	=	-Wall -Wextra -Werror
 RM		=	rm -rf
