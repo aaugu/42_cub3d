@@ -26,8 +26,9 @@ OBJS	=	$(addprefix $(OBJ_D), $(addsuffix .o, $(OBJ)))
 
 INCLUDE	=	-I includes -I libft -I mlx
 MLX_LIB =	-L mlx -lmlx -framework OpenGL -framework AppKit
-LIB		=	-Llibft -lft
+LIB		=	-Llibft -lft $(MLX_LIB)
 LIBFT	=	libft/libft.a
+MLX		=	mlx/libmlx.a
 
 $(OBJ_D)%.o : $(SRC_D)%.c
 			@mkdir -p $(OBJ_D)
@@ -35,7 +36,7 @@ $(OBJ_D)%.o : $(SRC_D)%.c
 
 all:		$(NAME)
 
-$(NAME):	$(LIBFT) $(OBJS)
+$(NAME):	$(MLX) $(LIBFT) $(OBJS)
 			@($(CC) $(FLAGS) $(INCLUDE) $(OBJS) $(LIB) -o $(NAME))
 			@echo "$(CYAN) [ OK ] | $(CYAN_B)cub3d$(END) $(CYAN)ready!$(END)"
 
@@ -46,8 +47,13 @@ $(LIBFT):
 			@make -s -C libft
 			@echo "$(PURPLE) [ OK ] | Libft ready!$(END)"
 
+$(MLX):
+			@make -s -C mlx
+			@echo "(PURPLE) [ OK ] | Minilibx ready!$(END)"
+
 clean:
 			@make -s -C libft clean
+			@make -s -C mlx clean
 			@($(RM) $(OBJ_D))
 			@echo "$(GREEN) [ OK ] | Objects removed!$(END)"
 
