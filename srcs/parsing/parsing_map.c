@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/11 12:02:58 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/11 12:05:45 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_map	parsing_map_infos(char *map_file)
 	line = NULL;
 	count = read_map(fd, &map);
 	close(fd);
+	if (count == -1)
+		parsing_free(&map);
 	if (count == 0)
 		return (parsing_error("Map empty", map_file, NULL));
 	return (map);
