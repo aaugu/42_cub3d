@@ -1,6 +1,9 @@
 {
 	"files.associations": {
 		"locale": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"parsing.h": "c",
+		"message.h": "c",
+		"chrono": "c"
 	}
 }

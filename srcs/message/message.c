@@ -6,12 +6,12 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:20:42 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/11 14:41:15 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/12 10:03:04 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "message.h"
+#include "../../includes/message.h"
 
 int	msg(char *arg, char *str, int exit_code)
 {
