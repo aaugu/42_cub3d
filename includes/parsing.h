@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:56:46 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/12 14:44:56 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/14 13:43:23 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@
 
 # define ERROR -1
 # define STR_ERR_MAP "Map not valid"
-# define ERR_NO_ARG "argument is missing"
-# define ERR_INFO_MISSING "informations missing"
+# define ERR_NO_ARG "information argument is missing"
+# define ERR_INFO_MISSING "information(s) missing"
 # define ERR_DUPLICATE "information duplicate"
+# define ERR_SEVERAL_ARGS "too many arguments on information"
+# define ERR_NOT_NUM "argument not numerical"
+# define ERR_ARG "invalid argument"
 
 /******************************************************************************
 *							    	ENUM									  *
@@ -66,6 +69,8 @@ int		parsing_map_layout(t_map *map, char *filename);
 void	state_idle(t_state_machine *fsm, t_map *map, int position);
 void	state_information(t_state_machine *fsm, t_map *map, int position);
 void	state_map(t_state_machine *fsm, t_map *map);
-void	fsm_error(t_state *current_state, t_state state, char *arg, char *str);
+void	set_texture(t_state_machine *fsm, char **element);
+void	set_color(t_state_machine *fsm, int *element);
+void	fsm_error(t_state_machine *fsm, t_state state, char *arg, char *str);
 
 #endif

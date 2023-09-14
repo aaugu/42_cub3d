@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/12 14:41:55 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/14 13:49:41 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,11 @@ int	main(void)
 {
 	t_map	map;
 
-	map = (t_map){0};
+	map.width = 0;
+	map.height = 0;
+	map.player[0] = 0;
+	map.player[1] = 0;
+	map.orientation = UNDEFINED;
 	map.east = NULL;
 	map.north = NULL;
 	map.west = NULL;
@@ -73,6 +77,6 @@ int	main(void)
 	map.c_color[1] = -1;
 	map.c_color[2] = -1;
 	map.layout = NULL;
-	parsing(&map, "../maps/map_subject.cub");
+	parsing(&map, "../../maps/map_subject.cub");
 	return (0);
 }

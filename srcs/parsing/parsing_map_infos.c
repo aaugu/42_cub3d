@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/12 14:38:14 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/14 14:25:29 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "../../libft/include/libft.h"
 
 int		state_machine(t_map *map, int fd);
+void	init_state_machine(t_state_machine *fsm);
 void	execute_state_machine(t_state_machine *fsm, t_map *map, int position);
 
 int	parsing_map_infos(t_map *map, char *filename)
@@ -39,7 +40,7 @@ int	state_machine(t_map *map, int fd)
 	int				i;
 	t_state_machine	fsm;
 
-	fsm = (t_state_machine){0};
+	init_state_machine(&fsm);
 	i = 1;
 	while (true)
 	{
@@ -55,13 +56,21 @@ int	state_machine(t_map *map, int fd)
 			i++;
 		}
 	}
-	if (fsm.state == error)
+	if (fsm.state == error || fsm.state == malloc_err)
 		return (ERROR);
-	if (fsm.state == malloc_err)
-		return (msg(NULL, strerror(errno), ERROR));
 	map->height = fsm.count_map_height;
 	map->width = fsm.count_map_width;
 	return (fsm.map_position);
+}
+
+void	init_state_machine(t_state_machine *fsm)
+{
+	fsm->state = idle;
+	fsm->info_count = 0;
+	fsm->count_map_height = 0;
+	fsm->count_map_width = 0;
+	fsm->map_position = -1;
+	fsm->line = NULL;
 }
 
 void	execute_state_machine(t_state_machine *fsm, t_map *map, int position)
@@ -72,4 +81,11 @@ void	execute_state_machine(t_state_machine *fsm, t_map *map, int position)
 		state_information(fsm, map, position);
 	else if (fsm->state == map_line)
 		state_map(fsm, map);
+}
+
+void	fsm_error(t_state_machine *fsm, t_state state, char *arg, char *str)
+{
+	fsm->state = state;
+	if (str)
+		msg(arg, str, EXIT_FAILURE);
 }
