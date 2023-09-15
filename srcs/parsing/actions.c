@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/14 14:26:37 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/15 15:20:23 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	set_texture(t_state_machine *fsm, char **element)
 	int		i;
 	int		j;
 
+	printf("%p\n", *element);
 	if (*element)
-		fsm_error(fsm, error, fsm->line, ERR_DUPLICATE);
+		return (fsm_error(fsm, error, fsm->line, ERR_DUPLICATE));
 	i = check_no_arg(fsm, 2);
 	if (i == -1)
 		return ;

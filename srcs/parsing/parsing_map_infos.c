@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/14 14:25:29 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/15 13:18:23 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	parsing_map_infos(t_map *map, char *filename)
 
 int	state_machine(t_map *map, int fd)
 {
-	int				i;
 	t_state_machine	fsm;
+	int				i;
 
 	init_state_machine(&fsm);
 	i = 1;
