@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/15 17:18:37 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/15 17:47:09 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,6 @@ int	state_machine(t_map *map, int fd)
 	i = 1;
 	while (fsm.state != error && fsm.state != malloc_err)
 	{
-		printf("WE %p\n", map->west);
-		printf("SO %p\n", map->south);
-		printf("NO %p\n", map->north);
-		printf("EA %p\n", map->east);
-		printf("--------------\n");
 		fsm.line = get_next_line(fd);
 		if (!fsm.line)
 			break ;

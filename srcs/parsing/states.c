@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:54:27 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/15 17:22:25 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/15 17:55:48 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	start_map(t_state_machine *fsm, int position);
 
 void	state_idle(t_state_machine *fsm, t_map *map, int position)
 {
-	printf("je suis dans idle\n");
 	if (!ft_strncmp(fsm->line, "NO ", 3))
 		set_texture(fsm, &map->north);
 	else if (!ft_strncmp(fsm->line, "SO ", 3))
@@ -40,7 +39,6 @@ void	state_idle(t_state_machine *fsm, t_map *map, int position)
 
 void	state_information(t_state_machine *fsm, t_map *map, int position)
 {
-	printf("je suis dans infos\n");
 	if (fsm->info_count < 6)
 	{
 		if (!ft_strncmp(fsm->line, "NO ", 3))
@@ -90,7 +88,8 @@ bool	is_empty_line(char *str)
 {
 	int	i;
 
-	while (str[i] == ' ' && str[i] == '\n')
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\n')
 		i++;
 	if (i == ft_strlen(str))
 		return (true);
