@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:54:27 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/15 17:55:48 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 10:35:32 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 bool	is_empty_line(char *str);
 void	start_map(t_state_machine *fsm, int position);
 
-void	state_idle(t_state_machine *fsm, t_map *map, int position)
+void	state_idle(t_state_machine *fsm, t_map *map)
 {
 	if (!ft_strncmp(fsm->line, "NO ", 3))
 		set_texture(fsm, &map->north);

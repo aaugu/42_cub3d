@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/15 18:01:50 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 10:35:41 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	state_machine(t_map *map, int fd)
 	i = 1;
 	while (fsm.state != error && fsm.state != malloc_err)
 	{
-		printf("line : %d\n", i);
 		fsm.line = get_next_line(fd);
 		if (!fsm.line)
 			break ;
@@ -55,7 +54,7 @@ int	state_machine(t_map *map, int fd)
 	if (fsm.state == error || fsm.state == malloc_err)
 		return (ERROR);
 	map->height = fsm.count_map_height;
-	map->width = fsm.count_map_width;
+	map->width = fsm.count_map_width - 1;
 	return (fsm.map_position);
 }
 
@@ -72,7 +71,7 @@ void	init_state_machine(t_state_machine *fsm)
 void	execute_state_machine(t_state_machine *fsm, t_map *map, int position)
 {
 	if (fsm->state == idle)
-		state_idle(fsm, map, position);
+		state_idle(fsm, map);
 	else if (fsm->state == information)
 		state_information(fsm, map, position);
 	else if (fsm->state == map_line)

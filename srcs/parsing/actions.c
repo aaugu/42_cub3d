@@ -6,18 +6,18 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 09:48:41 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 11:37:55 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
 #include <errno.h>
 #include "../../includes/parsing.h"
 #include "../../libft/include/libft.h"
 
-void	get_rgb(t_state_machine *fsm, int *element, int i, char *color);
-int		check_no_arg(t_state_machine *fsm, int i);
-int		check_several_args(t_state_machine *fsm, int i);
+int		check_args(t_state_machine *fsm, int i, int args);
+int		get_rgb(t_state_machine *fsm, int *element, int i);
+bool	rgb_values_valid(t_state_machine *fsm, int *rgb);
 
 void	set_texture(t_state_machine *fsm, char **element)
 {
@@ -26,7 +26,8 @@ void	set_texture(t_state_machine *fsm, char **element)
 
 	if (*element)
 		return (fsm_error(fsm, error, fsm->line, ERR_INFO_DUP));
-	i = check_no_arg(fsm, 2);
+	fsm->state = information;
+	i = check_args(fsm, 2, NO_ARG);
 	if (i == -1)
 		return ;
 	j = i;
@@ -35,88 +36,77 @@ void	set_texture(t_state_machine *fsm, char **element)
 	*element = ft_substr(fsm->line, j, i - j);
 	if (!*element)
 		return (fsm_error(fsm, malloc_err, NULL, strerror(errno)));
-	if (check_several_args(fsm, i) == ERROR)
+	if (check_args(fsm, i, SEVERAL_ARGS) == ERROR)
 		return ;
 	fsm->info_count++;
 }
 
-void	set_color(t_state_machine *fsm, int *element)
+void	set_color(t_state_machine *fsm, int *rgb)
 {
 	int		i;
-	char	*color;
+	int		j;
 
-	if (element[0] != -1 && element[1] != -1 && element[2] != -1)
+	if (rgb[0] != -1 && rgb[1] != -1 && rgb[2] != -1)
 		return (fsm_error(fsm, error, fsm->line, ERR_INFO_DUP));
-	i = check_no_arg(fsm, 2);
+	fsm->state = information;
+	i = check_args(fsm, 2, NO_ARG);
 	if (i == -1)
 		return ;
-	color = (char *)malloc(sizeof(char) * ft_strlen(fsm->line));
-	if (!color)
-		return (fsm_error(fsm, malloc_err, NULL, strerror(errno)));
-	get_rgb(fsm, element, i, color);
-	free(color);
-	i = 0;
-	while (i < 3)
-	{
-		if (element[i] < 0 || element[i] > 255)
-			return (fsm_error(fsm, error, fsm->line, ERR_ARG));
-		i++;
-	}
-	if (check_several_args(fsm, i) == ERROR)
+	j = get_rgb(fsm, rgb, i);
+	if (check_args(fsm, j, SEVERAL_ARGS) == ERROR)
 		return ;
+	if (!rgb_values_valid(fsm, rgb))
+		return (fsm_error(fsm, error, fsm->line, ERR_ARG));
 	fsm->info_count++;
 }
 
-void	get_rgb(t_state_machine *fsm, int *element, int i, char *color)
+int	get_rgb(t_state_machine *fsm, int *rgb, int i)
 {
 	int	j;
-	int	k;
 
 	j = 0;
-	k = 0;
-	while ((fsm->line[i] != ' ' && fsm->line[i] != '\n') || k > 2)
+	while (fsm->line[i] != ' ' && fsm->line[i] && j < 3)
 	{
-		printf("caractere en cours : %c\n", fsm->line[i]);
-		while (fsm->line[i] != ',')
+		rgb[j] = 0;
+		while (fsm->line[i] != ',' && fsm->line[i] != ' ' && fsm->line[i]
+				&& fsm->line[i] != '\n')
 		{
 			if (fsm->line[i] >= '0' || fsm->line[i] <= '9')
-			{
-				color[j] = fsm->line[i];
-				j++;
-			}
+				rgb[j] = (rgb[j] * 10) + (fsm->line[i] - '0');
 			else
-				return (fsm_error(fsm, error, fsm->line, ERR_NOT_NUM));
+			{
+				fsm_error(fsm, error, fsm->line, ERR_NOT_NUM);
+				return (ERROR);
+			}
 			i++;
 		}
-		color[j] = '\0';
-		element[k] = ft_atoi(color);
 		i++;
-		j = 0;
-		k++;
-	}
-}
-
-int	check_no_arg(t_state_machine *fsm, int i)
-{
-	fsm->state = information;
-	while (fsm->line[i] == ' ')
-		i++;
-	if (fsm->line[i] == '\n')
-	{
-		fsm_error(fsm, error, fsm->line, ERR_NO_ARG);
-		return (-1);
+		j++;
 	}
 	return (i);
 }
 
-int	check_several_args(t_state_machine *fsm, int i)
+bool	rgb_values_valid(t_state_machine *fsm, int *rgb)
 {
-	while (fsm->line[i] == ' ' && fsm->line[i] != '\n')
-		i++;
-	if (fsm->line[i] != '\n')
+	int	i;
+
+	i = 0;
+	while (i < 3)
 	{
-		fsm_error(fsm, error, fsm->line, ERR_SEVERAL_ARGS);
-		return (ERROR);
+		if (rgb[i] < 0 || rgb[i] > 255)
+			return (false);
+		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (true);
+}
+
+int	check_args(t_state_machine *fsm, int i, int args)
+{
+	while (fsm->line[i] == ' ')
+		i++;
+	if ((fsm->line[i] == '\n' || fsm->line[i] == '\0') && !args)
+		fsm_error(fsm, error, fsm->line, ERR_NO_ARG);
+	if (fsm->line[i] != '\n' && fsm->line[i] != '\0' && args)
+		fsm_error(fsm, error, fsm->line, ERR_SEVERAL_ARGS);
+	return (i);
 }

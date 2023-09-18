@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 10:29:30 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 11:03:41 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ int	parsing_map_checks(t_map *map)
 
 	if (!elements_valid(map))
 		return (ERROR);
-	check_map = ft_strs_copy((const char **)map->layout, map->height);
-	if (!check_map)
-		return (msg(NULL, strerror(errno), ERROR));
-	if (!map_solvable(check_map, map->player_x, map->player_y, map->height))
-	{
-		ft_strs_free(check_map, map->height);
-		return (ERROR);
-	}
-	ft_strs_free(check_map, map->height);
+	// check_map = ft_strs_copy((const char **)map->layout, map->height);
+	// if (!check_map)
+	// 	return (msg(NULL, strerror(errno), ERROR));
+	// if (!map_solvable(check_map, map->player_x, map->player_y, map->height))
+	// {
+	// 	ft_strs_free(check_map, map->height);
+	// 	return (ERROR);
+	// }
+	// ft_strs_free(check_map, map->height);
 	return (EXIT_SUCCESS);
 }
 
@@ -58,7 +58,7 @@ bool	undefined_element(char *line)
 	int	i;
 
 	i = 0;
-	while (i++ < ft_strlen(line[i]))
+	while (i++ < ft_strlen(line))
 	{
 		if (line[i] != 'N' && line[i] != 'S' && line[i] != 'W' && line[i] != 'E'
 			&& line[i] != ' ' && line[i] != '0' && line[i] != '1')
@@ -72,7 +72,7 @@ bool	player_pos_dup(t_map *map, char *line, int y)
 	int	i;
 
 	i = 0;
-	while (i++ < ft_strlen(line[i]))
+	while (i++ < ft_strlen(line))
 	{
 		if ((line[i] == 'N' || line[i] == 'S' || line[i] == 'W'
 			|| line[i] == 'E') && map->orientation == UNDEFINED)
