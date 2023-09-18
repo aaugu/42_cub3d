@@ -6,11 +6,10 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:54:27 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 10:35:32 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 12:07:18 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "../../includes/parsing.h"
 #include "../../libft/include/libft.h"
 

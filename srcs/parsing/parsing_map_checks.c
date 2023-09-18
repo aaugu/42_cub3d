@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 11:03:41 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 12:04:42 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include "../../libft/include/libft.h"
 
 bool	elements_valid(t_map *map);
-bool	undefined_element(char *line);
-bool	player_pos_dup(t_map *map, char *line, int y);
+bool	undefined_element(char *str);
+bool	player_pos_dup(t_map *map, char *str, int y);
 bool	map_solvable(char **map, int x, int y, int height);
 
 int	parsing_map_checks(t_map *map)
 {
-	char **check_map;
+	char	**check_map;
 
 	if (!elements_valid(map))
 		return (ERROR);
@@ -43,67 +43,57 @@ bool	elements_valid(t_map *map)
 	int		i;
 
 	i = 0;
-	while (i++ < map->height)
+	while (i < map->height)
 	{
 		if (undefined_element(map->layout[i]))
-			return (msg(map->layout[i], ERR_INVALID_EL, false));;
+			return (msg(map->layout[i], ERR_UNDEFINED, false));
 		if (player_pos_dup(map, map->layout[i], i))
 			return (msg(map->layout[i], ERR_PLAYER_DUP, false));
+		i++;
 	}
 	return (true);
 }
 
-bool	undefined_element(char *line)
+bool	undefined_element(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (i++ < ft_strlen(line))
+	while (i < ft_strlen(str))
 	{
-		if (line[i] != 'N' && line[i] != 'S' && line[i] != 'W' && line[i] != 'E'
-			&& line[i] != ' ' && line[i] != '0' && line[i] != '1')
-			return (msg(line, ERR_INVALID_EL, true));
+		if (str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E'
+			&& str[i] != ' ' && str[i] != '0' && str[i] != '1')
+			return (true);
+		i++;
 	}
 	return (false);
 }
 
-bool	player_pos_dup(t_map *map, char *line, int y)
+bool	player_pos_dup(t_map *map, char *str, int y)
 {
 	int	i;
 
-	i = 0;
-	while (i++ < ft_strlen(line))
+	i = -1;
+	while (++i < ft_strlen(str))
 	{
-		if ((line[i] == 'N' || line[i] == 'S' || line[i] == 'W'
-			|| line[i] == 'E') && map->orientation == UNDEFINED)
+		if (str[i] == 'N' || str[i] == 'S' || str[i] == 'W' || str[i] == 'E')
 		{
-			map->player_x = i;
-			map->player_y = y;
-			if (line[i] == 'N')
-				map->orientation = NORTH;
-			if (line[i] == 'S')
-				map->orientation = SOUTH;
-			if (line[i] == 'E')
-				map->orientation = EAST;
-			if (line[i] == 'W')
-				map->orientation = WEST;
+			if (map->orientation == UNDEFINED)
+			{
+				map->player_x = i;
+				map->player_y = y;
+				if (str[i] == 'N')
+					map->orientation = NORTH;
+				if (str[i] == 'S')
+					map->orientation = SOUTH;
+				if (str[i] == 'E')
+					map->orientation = EAST;
+				if (str[i] == 'W')
+					map->orientation = WEST;
+			}
+			else
+				return (true);
 		}
-		else
-			return (msg(line, ERR_PLAYER_DUP, true));
 	}
 	return (false);
 }
-
-// bool	map_solvable(char **map, int x, int y, int height)
-// {
-// 	if (map[y][x] == 'C' || map[y][x] == 'E' || map[y][x] == 'P' || \
-// 		map[y][x] == '0')
-// 	{
-// 		map[y][x] = 'O';
-// 		fill_path(map, x + 1, y);
-// 		fill_path(map, x, y + 1);
-// 		fill_path(map, x, y - 1);
-// 		fill_path(map, x - 1, y);
-// 	}
-// 	return ;
-// }

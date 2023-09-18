@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:38 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 10:29:04 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 11:53:18 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,11 @@ void	fill_with_void(char *map_line, int size, int width)
 	int	i;
 
 	i = size;
-	while (i++ < width)
+	while (i < width)
+	{
 		map_line[i] = ' ';
+		i++;
+	}
 }
 
 // int	main(void)

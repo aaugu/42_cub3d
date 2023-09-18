@@ -6,11 +6,10 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 11:37:55 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 12:00:54 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <errno.h>
 #include "../../includes/parsing.h"
 #include "../../libft/include/libft.h"
@@ -64,12 +63,12 @@ int	get_rgb(t_state_machine *fsm, int *rgb, int i)
 {
 	int	j;
 
-	j = 0;
+	j = -1;
 	while (fsm->line[i] != ' ' && fsm->line[i] && j < 3)
 	{
-		rgb[j] = 0;
+		rgb[++j] = 0;
 		while (fsm->line[i] != ',' && fsm->line[i] != ' ' && fsm->line[i]
-				&& fsm->line[i] != '\n')
+			&& fsm->line[i] != '\n')
 		{
 			if (fsm->line[i] >= '0' || fsm->line[i] <= '9')
 				rgb[j] = (rgb[j] * 10) + (fsm->line[i] - '0');
@@ -81,7 +80,6 @@ int	get_rgb(t_state_machine *fsm, int *rgb, int i)
 			i++;
 		}
 		i++;
-		j++;
 	}
 	return (i);
 }

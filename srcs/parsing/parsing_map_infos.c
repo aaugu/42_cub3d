@@ -6,13 +6,12 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 10:35:41 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 12:06:12 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <stdlib.h>
-#include <string.h>
 #include <errno.h>
 #include "../../includes/parsing.h"
 #include "../../includes/message.h"

@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:56:46 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 11:35:15 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 11:42:05 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define ERR_SEVERAL_ARGS "too many arguments on information"
 # define ERR_NOT_NUM "argument not numerical"
 # define ERR_ARG "invalid argument value"
-# define ERR_INVALID_EL "invalid element in map"
+# define ERR_UNDEFINED "undefined element in map"
 # define ERR_PLAYER_DUP "should be only one player"
 
 # define NO_ARG 0
