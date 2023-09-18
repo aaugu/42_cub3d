@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:56:46 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/15 17:05:15 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 10:29:46 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@
 # define STR_ERR_MAP "Map not valid"
 # define ERR_NO_ARG "information argument is missing"
 # define ERR_INFO_MISSING "information(s) missing"
-# define ERR_DUPLICATE "information duplicate"
+# define ERR_INFO_DUP "information duplicate"
 # define ERR_SEVERAL_ARGS "too many arguments on information"
 # define ERR_NOT_NUM "argument not numerical"
 # define ERR_ARG "invalid argument"
+# define ERR_INVALID_EL "invalid element in map"
+# define ERR_PLAYER_DUP "should be only one player"
 
 /******************************************************************************
 *							    	ENUM									  *
@@ -64,6 +66,7 @@ typedef struct s_state_machine
 int		parsing(t_map *map, char *map_file);
 int		parsing_map_infos(t_map *map, char *filename);
 int		parsing_map_layout(t_map *map, char *filename, int map_position);
+int		parsing_map_checks(t_map *map);
 
 //state machine
 void	state_idle(t_state_machine *fsm, t_map *map, int position);

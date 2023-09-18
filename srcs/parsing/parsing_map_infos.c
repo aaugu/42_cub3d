@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/15 17:47:09 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/15 18:01:50 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	state_machine(t_map *map, int fd)
 	i = 1;
 	while (fsm.state != error && fsm.state != malloc_err)
 	{
+		printf("line : %d\n", i);
 		fsm.line = get_next_line(fd);
 		if (!fsm.line)
 			break ;

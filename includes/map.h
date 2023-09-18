@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:00:22 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/14 13:49:25 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 09:43:50 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_map
 {
 	int				width;
 	int				height;
-	int				player[2];
+	int				player_x;
+	int				player_y;
 	int				f_color[3];
 	int				c_color[3];
 	t_orientation	orientation;

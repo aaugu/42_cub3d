@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/15 15:30:10 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/18 09:48:41 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ void	set_texture(t_state_machine *fsm, char **element)
 	int		i;
 	int		j;
 
-	// printf("%p\n", *element);
 	if (*element)
-		return (fsm_error(fsm, error, fsm->line, ERR_DUPLICATE));
+		return (fsm_error(fsm, error, fsm->line, ERR_INFO_DUP));
 	i = check_no_arg(fsm, 2);
 	if (i == -1)
 		return ;
@@ -47,7 +46,7 @@ void	set_color(t_state_machine *fsm, int *element)
 	char	*color;
 
 	if (element[0] != -1 && element[1] != -1 && element[2] != -1)
-		return (fsm_error(fsm, error, fsm->line, ERR_DUPLICATE));
+		return (fsm_error(fsm, error, fsm->line, ERR_INFO_DUP));
 	i = check_no_arg(fsm, 2);
 	if (i == -1)
 		return ;
@@ -77,6 +76,7 @@ void	get_rgb(t_state_machine *fsm, int *element, int i, char *color)
 	k = 0;
 	while ((fsm->line[i] != ' ' && fsm->line[i] != '\n') || k > 2)
 	{
+		printf("caractere en cours : %c\n", fsm->line[i]);
 		while (fsm->line[i] != ',')
 		{
 			if (fsm->line[i] >= '0' || fsm->line[i] <= '9')
