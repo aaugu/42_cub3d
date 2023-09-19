@@ -6,11 +6,12 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 12:57:19 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 13:19:28 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
+#include <stdbool.h>
 #include "parsing_map.h"
 #include "libft.h"
 
@@ -27,11 +28,11 @@ int	parsing_map_checks(t_map *map)
 		return (ERROR);
 	check_map = ft_strs_copy((const char **)map->layout, map->height);
 	if (!check_map)
-		return (msg(NULL, strerror(errno), ERROR));
+		return (parsing_error(NULL, strerror(errno), ERROR));
 	if (!map_closed(check_map, map->player_x, map->player_y))
 	{
 		ft_strs_free(check_map, map->height);
-		return (msg(STR_ERR_MAP, ERR_NOT_CLOSED, ERROR));
+		return (parsing_error(STR_ERR_MAP, ERR_NOT_CLOSED, ERROR));
 	}
 	ft_strs_free(check_map, map->height);
 	return (EXIT_SUCCESS);
@@ -45,9 +46,9 @@ bool	elements_valid(t_map *map)
 	while (i < map->height)
 	{
 		if (undefined_element(map->layout[i]))
-			return (msg(map->layout[i], ERR_UNDEFINED, false));
+			return (parsing_error(map->layout[i], ERR_UNDEFINED, false));
 		if (player_pos_dup(map, map->layout[i], i))
-			return (msg(map->layout[i], ERR_PLAYER_DUP, false));
+			return (parsing_error(map->layout[i], ERR_PLAYER_DUP, false));
 		i++;
 	}
 	return (true);

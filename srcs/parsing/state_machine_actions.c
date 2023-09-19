@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   state_machine_actions.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 12:58:32 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 13:26:45 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
+#include <stdbool.h>
 #include "parsing_state_machine.h"
 #include "libft.h"
 
@@ -34,7 +35,7 @@ void	set_texture(t_state_machine *fsm, char **element)
 		i++;
 	*element = ft_substr(fsm->line, j, i - j);
 	if (!*element)
-		return (fsm_error(fsm, malloc_err, NULL, strerror(errno)));
+		return (fsm_error(fsm, error, NULL, strerror(errno)));
 	if (check_args(fsm, i, SEVERAL_ARGS) == ERROR)
 		return ;
 	fsm->info_count++;

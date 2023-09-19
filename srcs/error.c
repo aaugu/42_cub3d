@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:04:34 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/11 12:06:55 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/19 13:07:48 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	err_msg(char *detail, char *str, int code)
+int	err_parsing_error(char *detail, char *str, int code)
 {
 	ft_putstr_fd(RED "cub3D: Error", 2);
 	if (detail)

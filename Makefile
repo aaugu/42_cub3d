@@ -1,15 +1,10 @@
-# Colour codes
+# Color codes
 END		=	\033[0m
-GRAY 	=	\033[0;30m
-RED		=	\033[0;31m
 GREEN	=	\033[0;32m
-YELLOW	=	\033[0;33m
 BLUE	=	\033[0;34m
 PURPLE	=	\033[0;35m
 CYAN	=	\033[0;36m
-WHITE	=	\033[0;37m
 CYAN_B	=	\033[1;96m
-GREEN_B	=	\033[1;92m
 
 NAME	=	cub3D
 CC		=	gcc
@@ -29,6 +24,13 @@ SRC		=	main \
 			init/init_data \
 			init/init_mlx \
 			init/init_texture \
+			parsing/parsing_error \
+			parsing/parsing_map_checks \
+			parsing/parsing_map_infos \
+			parsing/parsing_map_layout \
+			parsing/parsing_map \
+			parsing/state_machine_actions \
+			parsing/state_machine_states \
 			render/raycasting \
 			render/render \
 			render/texture
@@ -48,6 +50,7 @@ $(OBJ_D)%.o : $(SRC_D)%.c
 			@mkdir -p $(OBJ_D)/exit
 			@mkdir -p $(OBJ_D)/init
 			@mkdir -p $(OBJ_D)/render
+			@mkdir -p $(OBJ_D)/parsing
 			@($(CC) $(FLAGS) -DBONUS=$(BONUS) $(INCLUDE) -c $< -o $@)
 
 all:		$(NAME)
@@ -57,7 +60,7 @@ $(NAME):	$(MLX) $(LIBFT) $(OBJS)
 			@echo "$(CYAN) [ OK ] | $(CYAN_B)cub3d$(END) $(CYAN)ready!$(END)"
 
 bonus:
-	make all BONUS=1
+			make all BONUS=1
 
 $(LIBFT):
 			@echo "$(PURPLE) [ .. ] | Compiling libft..$(END)"
@@ -66,7 +69,7 @@ $(LIBFT):
 
 $(MLX):
 			@make -s -C mlx
-			@echo "(PURPLE) [ OK ] | Minilibx ready!$(END)"
+			@echo "$(PURPLE) [ OK ] | Minilibx ready!$(END)"
 
 clean:
 			@make -s -C libft clean

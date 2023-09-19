@@ -6,12 +6,13 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 13:06:36 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 13:10:27 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "parsing_map.h"
+#include "libft.h"
 
 void	init_map(t_map *map)
 {
@@ -51,12 +52,12 @@ void	parsing_map_free(t_map *map)
 {
 	if (map->north)
 		free(map->north);
-	if (map->north)
-		free(map->north);
-	if (map->north)
-		free(map->north);
-	if (map->north)
-		free(map->north);
+	if (map->south)
+		free(map->south);
+	if (map->east)
+		free(map->east);
+	if (map->west)
+		free(map->west);
 	if (map->layout)
-		free(map->north);
+		ft_strs_free(map->layout, map->height);
 }

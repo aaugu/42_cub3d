@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:00:22 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 13:03:16 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 13:07:48 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_map
 void	init_map(t_map *map);
 int		parsing_map(t_map *map, char *map_file);
 void	parsing_map_free(t_map *map);
-int		msg(char *arg, char *str, int exit_code);
+int		parsing_error(char *arg, char *str, int exit_code);
 
 int		parsing_map_infos(t_map *map, char *filename);
 int		parsing_map_layout(t_map *map, char *filename, int map_position);

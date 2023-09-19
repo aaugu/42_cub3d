@@ -6,14 +6,14 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:20:42 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 13:05:38 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 13:07:48 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "parsing_map.h"
 
-int	msg(char *arg, char *str, int exit_code)
+int	parsing_error(char *arg, char *str, int exit_code)
 {
 	printf("Error\n");
 	if (arg)

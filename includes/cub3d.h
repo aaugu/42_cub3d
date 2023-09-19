@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/14 10:55:37 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/19 13:27:32 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../libft/include/libft.h"
+# include "libft.h"
 # include "../mlx/mlx.h"
 # include "colors.h"
 # include <errno.h>
@@ -21,7 +21,6 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <unistd.h>
-
 
 /* ***********************************************************************	*/
 /*							MACRO											*/
@@ -38,7 +37,6 @@
 # define ERR_MLX_WIN "Could not create mlx window"
 # define ERR_MLX_IMG "Could not create mlx image"
 # define ERR_MALLOC "Could not allocate memory"
-
 
 // Taille de la fenêtre
 # define WIN_WIDTH 640
@@ -181,6 +179,6 @@ void	init_texture_pixels(t_data *data);
 void	update_texture_pixels(t_data *data, t_texinfo *tex, t_ray *ray, int x);
 
 /* error.c */
-int		err_msg(char *detail, char *str, int code);
+int		err_parsing_error(char *detail, char *str, int code);
 
 #endif

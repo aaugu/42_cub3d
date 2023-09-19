@@ -6,7 +6,7 @@
 #    By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:03:36 by aaugu             #+#    #+#              #
-#    Updated: 2023/09/11 09:46:28 by aaugu            ###   ########.fr        #
+#    Updated: 2023/09/19 13:19:06 by aaugu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-INCLUDE = -I include
+INCLUDE = -I
 AR = ar rc
 RM = rm -rf
 
