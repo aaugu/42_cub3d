@@ -6,11 +6,12 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 13:30:32 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:39:03 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "bonus.h"
 #include "key_macos.h"
 
 static void	print_controls(void)
@@ -68,60 +69,20 @@ void	listen_for_input(t_data *data)
 			mouse_motion_handler, data);*/
 }
 
-void	test_map_info(t_data *data)
-{
-	int i = 0;
-	data->map = malloc(sizeof(char *) * (5));
-	while (i < 5)
-	{
-		data->map[i] = malloc(sizeof(char) * (5));
-		i++;
-	}
-	
-	data->map[0][0] = ' ';
-	data->map[0][1] = ' ';
-	data->map[0][2] = ' ';
-	data->map[0][3] = '1';
-	data->map[0][4] = '1';
 
-	data->map[1][0] = ' ';
-	data->map[1][1] = ' ';
-	data->map[1][2] = '1';
-	data->map[1][3] = '0';
-	data->map[1][4] = '1';
-
-	data->map[2][0] = ' ';
-	data->map[2][1] = '1';
-	data->map[2][2] = '0';
-	data->map[2][3] = '0';
-	data->map[2][4] = '1';
-
-	data->map[3][0] = '1';
-	data->map[3][1] = '0';
-	data->map[3][2] = '0';
-	data->map[3][3] = '0';
-	data->map[3][4] = '1';
-	
-	data->map[4][0] = '1';
-	data->map[4][1] = '1';
-	data->map[4][2] = '1';
-	data->map[4][3] = '1';
-	data->map[4][4] = '1';
-	data->texinfo.north = "textures/test/north.xpm";
-	data->texinfo.south = "textures/test/south.xpm";
-	data->texinfo.east = "textures/test/east.xpm";
-	data->texinfo.west = "textures/test/west.xpm";
+/*
 	data->texinfo.hex_floor = 0x8e8e8e;
 	data->texinfo.hex_ceiling = 0x54C8E6;
 	data->player.pos_x = (double)2 + 0.5;
 	data->player.pos_y = (double)4 + 0.5;
+
 	data->player.dir_x = 0;				// N : 	 0		S :	 0		E :	1		W :	-1
 	data->player.dir_y = -1;			//		-1			 1			0			 0
 	data->player.plane_x = 0.66;		//		 0.66		-0.66		0			 0
 	data->player.plane_y = 0;			//		 0			 0			0.66		-0.66
 	data->map_height = 5;
 	data->map_width = 5;
-}
+*/
 
 int	main(int ac, char **av)
 {
@@ -131,7 +92,7 @@ int	main(int ac, char **av)
 	if (ac != 1)
 		return (err_parsing_error("Usage", ERR_USAGE, 1));
 	init_data(&data);
-	test_map_info(&data);
+	// test_map_info(&data);
 	init_mlx(&data);
 	init_textures(&data);
 	print_controls();

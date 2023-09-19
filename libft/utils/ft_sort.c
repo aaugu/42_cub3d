@@ -6,11 +6,11 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:46:07 by aaugu             #+#    #+#             */
-/*   Updated: 2023/03/19 18:34:43 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:01:27 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 void	ft_sort(int *list, int size)
 {

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   orientation.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:48:28 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:01:27 by aaugu            ###   ########.fr       */
+/*   Created: 2023/09/19 14:29:22 by aaugu             #+#    #+#             */
+/*   Updated: 2023/09/19 14:30:11 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef ORIENTATION_H
+# define ORIENTATION_H
 
-/*
-Returns the last node of the list.
+/******************************************************************************
+*							    	ENUM									  *
+******************************************************************************/
 
-lst: The beginning of the list.
-*/
-
-t_list	*ft_lstlast(t_list *lst)
+typedef enum e_orientation
 {
-	if (!lst)
-		return (0);
-	while (lst->next)
-	{
-		lst = lst->next;
-	}
-	return (lst);
-}
+	NORTH,
+	WEST,
+	SOUTH,
+	EAST,
+	UNDEFINED,
+}	t_orientation;
+
+#endif

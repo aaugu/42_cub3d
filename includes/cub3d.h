@@ -6,14 +6,14 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/19 13:27:32 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:35:08 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "libft.h"
+# include "../libft/libft.h"
 # include "../mlx/mlx.h"
 # include "colors.h"
 # include <errno.h>
@@ -25,11 +25,6 @@
 /* ***********************************************************************	*/
 /*							MACRO											*/
 /* ***********************************************************************	*/
-
-// BONUS TOGGLE
-# ifndef BONUS
-#  define BONUS 0
-# endif
 
 // ERROR MESSAGES
 # define ERR_USAGE "usage: ./cub3d <path/to/map.cub>"

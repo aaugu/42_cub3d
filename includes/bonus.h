@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:48:28 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:01:27 by aaugu            ###   ########.fr       */
+/*   Created: 2023/09/19 14:14:47 by aaugu             #+#    #+#             */
+/*   Updated: 2023/09/19 14:16:40 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef BONUS_H
+# define BONUS_H
 
-/*
-Returns the last node of the list.
+/* ***********************************************************************	*/
+/*							MACRO											*/
+/* ***********************************************************************	*/
 
-lst: The beginning of the list.
-*/
+// BONUS TOGGLE
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (!lst)
-		return (0);
-	while (lst->next)
-	{
-		lst = lst->next;
-	}
-	return (lst);
-}
+#endif
