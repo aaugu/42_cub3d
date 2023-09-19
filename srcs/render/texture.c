@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/19 10:46:51 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/19 11:34:31 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	update_texture_pixels(t_data *data, t_texinfo *tex, t_ray *ray, int x)
 		tex->y = (int)tex->pos & (tex->size - 1);
 		tex->pos += tex->step;
 		color = data->textures[tex->index][tex->size * tex->y + tex->x];
-		// if (tex->index == NORTH || tex->index == EAST)
-		// 	color = (color >> 1) & 8355711;  /*assombrissement*/
+		if (tex->index == NORTH || tex->index == EAST)
+			color = (color >> 1) & 8355711;  /*assombrissement*/
 		if (color > 0)
 			data->texture_pixels[y][x] = color;
 		y++;
