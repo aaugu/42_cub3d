@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:26:47 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:52:55 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	parsing_map_checks(t_map *map)
 		return (ERROR);
 	check_map = ft_strs_copy((const char **)map->layout, map->height);
 	if (!check_map)
-		return (parsing_error(NULL, strerror(errno), ERROR));
+		return (parsing_error(map, NULL, strerror(errno), ERROR));
 	if (!map_closed(check_map, map->player_x, map->player_y, map->valid_env))
 	{
 		ft_strs_free(check_map, map->height);
-		return (parsing_error(STR_ERR_MAP, ERR_NOT_CLOSED, ERROR));
+		return (parsing_error(map, STR_ERR_MAP, ERR_NOT_CLOSED, ERROR));
 	}
 	ft_strs_free(check_map, map->height);
 	return (EXIT_SUCCESS);
@@ -47,9 +47,9 @@ bool	elements_valid(t_map *map, char *valid_elements)
 	while (i < map->height)
 	{
 		if (undefined_element(map->layout[i], valid_elements))
-			return (parsing_error(map->layout[i], ERR_UNDEFINED, false));
+			return (parsing_error(map, map->layout[i], ERR_UNDEFINED, false));
 		if (player_pos_dup(map, map->layout[i], i))
-			return (parsing_error(map->layout[i], ERR_PLAYER_DUP, false));
+			return (parsing_error(map, map->layout[i], ERR_PLAYER_DUP, false));
 		i++;
 	}
 	return (true);

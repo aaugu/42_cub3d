@@ -6,20 +6,18 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:14:04 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 15:16:37 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <errno.h>
 #include "parsing_map.h"
+#include "bonus.h"
 #include "libft.h"
 
-void	init_map(t_map *map)
+int	init_parsing_map(t_map *map)
 {
-	map->width = 0;
-	map->height = 0;
-	map->player_x = -1;
-	map->player_y = -1;
 	map->orientation = UNDEFINED;
 	map->east = NULL;
 	map->north = NULL;
@@ -32,6 +30,19 @@ void	init_map(t_map *map)
 	map->c_color[1] = -1;
 	map->c_color[2] = -1;
 	map->layout = NULL;
+	if (BONUS)
+		map->valid_elements = ft_strdup("01 SEWN");
+	else
+		map->valid_elements = ft_strdup("01 SEWN");
+	if (!map->valid_elements)
+		return (parsing_error(map, NULL, strerror(errno), ERROR));
+	if (BONUS)
+		map->valid_env = ft_strdup("P0SEWN");
+	else
+		map->valid_env = ft_strdup("0SEWN");
+	if (!map->valid_env)
+		return (parsing_error(map, NULL, strerror(errno), ERROR));
+	return (EXIT_SUCCESS);
 }
 
 int	parsing_map(t_map *map, char *map_file)
@@ -50,14 +61,18 @@ int	parsing_map(t_map *map, char *map_file)
 
 void	parsing_map_free(t_map *map)
 {
-	if (map->north)
-		free(map->north);
 	if (map->south)
 		free(map->south);
 	if (map->east)
 		free(map->east);
 	if (map->west)
 		free(map->west);
+	if (map->north)
+		free(map->north);
+	if (map->valid_elements)
+		free(map->valid_elements);
+	if (map->valid_env)
+		free(map->valid_env);
 	if (map->layout)
 		ft_strs_free(map->layout, map->height);
 }

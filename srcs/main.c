@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:39:03 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:51:12 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int ac, char **av)
 
 	(void)av;
 	if (ac != 1)
-		return (err_parsing_error("Usage", ERR_USAGE, 1));
+		return (err_msg("Usage", ERR_USAGE, 1));
 	init_data(&data);
 	// test_map_info(&data);
 	init_mlx(&data);

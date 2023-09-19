@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/19 14:35:08 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:51:12 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
 # include "colors.h"
+# include "bonus.h"
 # include <errno.h>
 # include <math.h>
 # include <stdbool.h>
@@ -174,6 +175,6 @@ void	init_texture_pixels(t_data *data);
 void	update_texture_pixels(t_data *data, t_texinfo *tex, t_ray *ray, int x);
 
 /* error.c */
-int		err_parsing_error(char *detail, char *str, int code);
+int		err_msg(char *detail, char *str, int code);
 
 #endif

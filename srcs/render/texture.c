@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/19 13:07:48 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:51:12 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	init_texture_pixels(t_data *data)
 	data->texture_pixels = ft_calloc(data->win_height + 1,
 			sizeof * data->texture_pixels);
 	if (!data->texture_pixels)
-		clean_exit(data, err_parsing_error(NULL, ERR_MALLOC, 1));
+		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
 	i = 0;
 	while (i < data->win_height)
 	{
 		data->texture_pixels[i] = ft_calloc(data->win_width + 1,
 				sizeof * data->texture_pixels);
 		if (!data->texture_pixels[i])
-			clean_exit(data, err_parsing_error(NULL, ERR_MALLOC, 1));
+			clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
 		i++;
 	}
 }

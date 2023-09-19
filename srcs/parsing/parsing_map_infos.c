@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 13:22:05 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:57:33 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	parsing_map_infos(t_map *map, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (parsing_error(filename, strerror(errno), ERROR));
+		return (parsing_error(map, filename, strerror(errno), ERROR));
 	map_position = state_machine(map, fd);
 	close(fd);
 	return (map_position);
@@ -45,7 +45,7 @@ int	state_machine(t_map *map, int fd)
 	{
 		fsm.line = get_next_line(fd);
 		if (!fsm.line)
-			return (parsing_error(NULL, strerror(errno), ERROR));
+			return (parsing_error(map, NULL, strerror(errno), ERROR));
 		execute_state_machine(&fsm, map, i);
 		free(fsm.line);
 		i++;
@@ -81,5 +81,5 @@ void	fsm_error(t_state_machine *fsm, t_state state, char *arg, char *str)
 {
 	fsm->state = state;
 	if (str)
-		parsing_error(arg, str, EXIT_FAILURE);
+		parsing_msg(arg, str, EXIT_FAILURE);
 }
