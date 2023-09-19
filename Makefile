@@ -13,13 +13,26 @@ GREEN_B	=	\033[1;92m
 
 NAME	=	cub3D
 CC		=	gcc
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror -g3 -fsanitize=address
 RM		=	rm -rf
+
+# BONUS TOGGLE
+BONUS = 0
 
 SRC_D 	=	srcs/
 OBJ_D 	=	objs/
 
-SRC		=	main
+SRC		=	main \
+			error \
+			exit/exit \
+			exit/free_data \
+			init/init_data \
+			init/init_mlx \
+			init/init_texture \
+			render/raycasting \
+			render/render \
+			render/texture
+
 SRCS	=	$(addprefix  $(SRC_D), $(addsuffix .c, $(SRC)))
 OBJ		=	$(SRC:%.c=%.o)
 OBJS	=	$(addprefix $(OBJ_D), $(addsuffix .o, $(OBJ)))
@@ -32,15 +45,19 @@ MLX		=	mlx/libmlx.a
 
 $(OBJ_D)%.o : $(SRC_D)%.c
 			@mkdir -p $(OBJ_D)
-			@($(CC) $(FLAGS) $(INCLUDE) -c $< -o $@)
+			@mkdir -p $(OBJ_D)/exit
+			@mkdir -p $(OBJ_D)/init
+			@mkdir -p $(OBJ_D)/render
+			@($(CC) $(FLAGS) -DBONUS=$(BONUS) $(INCLUDE) -c $< -o $@)
 
 all:		$(NAME)
 
 $(NAME):	$(MLX) $(LIBFT) $(OBJS)
-			@($(CC) $(FLAGS) $(INCLUDE) $(OBJS) $(LIB) -o $(NAME))
+			@($(CC) $(FLAGS) -DBONUS=$(BONUS) $(INCLUDE) $(OBJS) $(LIB) -o $(NAME))
 			@echo "$(CYAN) [ OK ] | $(CYAN_B)cub3d$(END) $(CYAN)ready!$(END)"
 
-bonus:		$(NAME)
+bonus:
+	make all BONUS=1
 
 $(LIBFT):
 			@echo "$(PURPLE) [ .. ] | Compiling libft..$(END)"
