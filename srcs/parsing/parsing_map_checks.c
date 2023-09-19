@@ -6,14 +6,13 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 11:17:23 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 12:57:19 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
-#include "../../includes/parsing.h"
-#include "../../includes/message.h"
-#include "../../libft/include/libft.h"
+#include "parsing_map.h"
+#include "libft.h"
 
 bool	elements_valid(t_map *map);
 bool	undefined_element(char *str);

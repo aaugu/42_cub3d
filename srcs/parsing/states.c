@@ -6,12 +6,12 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:54:27 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 09:59:00 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 12:58:23 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parsing.h"
-#include "../../libft/include/libft.h"
+#include "parsing_state_machine.h"
+#include "libft.h"
 
 bool	is_empty_line(char *str);
 void	start_map(t_state_machine *fsm, int position);

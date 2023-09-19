@@ -6,16 +6,16 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 10:13:35 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 12:58:10 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <stdlib.h>
 #include <errno.h>
-#include "../../includes/parsing.h"
-#include "../../includes/message.h"
-#include "../../libft/include/libft.h"
+#include "parsing_map.h"
+#include "parsing_state_machine.h"
+#include "libft.h"
 
 int		state_machine(t_map *map, int fd);
 void	init_state_machine(t_state_machine *fsm);

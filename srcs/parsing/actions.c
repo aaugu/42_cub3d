@@ -6,13 +6,13 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 09:42:20 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 12:58:32 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
-#include "../../includes/parsing.h"
-#include "../../libft/include/libft.h"
+#include "parsing_state_machine.h"
+#include "libft.h"
 
 int		check_args(t_state_machine *fsm, int i, int args);
 int		get_rgb(t_state_machine *fsm, int *element, int i);

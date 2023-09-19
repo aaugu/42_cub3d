@@ -6,15 +6,14 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:38 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 11:03:58 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 12:57:38 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <stdlib.h>
 #include <errno.h>
-#include "../../includes/parsing.h"
-#include "../../includes/message.h"
+#include "parsing_map.h"
 #include "../../libft/include/libft.h"
 
 int		fill_map(t_map *map, int fd);

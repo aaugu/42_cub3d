@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   message.h                                          :+:      :+:    :+:   */
+/*   parsing_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 11:19:13 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/12 10:03:39 by aaugu            ###   ########.fr       */
+/*   Created: 2023/09/11 11:20:42 by aaugu             #+#    #+#             */
+/*   Updated: 2023/09/19 13:05:38 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MESSAGE_H
-# define MESSAGE_H
+#include <stdio.h>
+#include "parsing_map.h"
 
-/******************************************************************************
-*							    FUNCTIONS									  *
-******************************************************************************/
-
-int	msg(char *arg, char *str, int exit_code);
-
-#endif
+int	msg(char *arg, char *str, int exit_code)
+{
+	printf("Error\n");
+	if (arg)
+		printf("%s: %s\n", arg, str);
+	else
+		printf("%s\n", str);
+	return (exit_code);
+}
