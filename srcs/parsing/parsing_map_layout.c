@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:38 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 11:53:18 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 11:03:58 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,3 @@ void	fill_with_void(char *map_line, int size, int width)
 		i++;
 	}
 }
-
-// int	main(void)
-// {
-// 	t_map	map;
-// 	int		i;
-
-// 	i = 0;
-// 	map.width = 33;
-// 	map.height = 14;
-// 	map.player_x = -1;
-// 	map.player_y = -1;
-// 	map.orientation = UNDEFINED;
-// 	map.layout = NULL;
-// 	parsing_map_layout(&map, "map_subject.cub", 9);
-// 	while (i < map.height)
-// 	{
-// 		printf("%sEOL\n", map.layout[i]);
-// 		i++;
-// 	}
-// 	return (0);
-// }

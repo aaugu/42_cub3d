@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 12:04:42 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 11:17:23 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 bool	elements_valid(t_map *map);
 bool	undefined_element(char *str);
 bool	player_pos_dup(t_map *map, char *str, int y);
-bool	map_solvable(char **map, int x, int y, int height);
+bool	map_closed(char **map, int x, int y);
 
 int	parsing_map_checks(t_map *map)
 {
@@ -26,15 +26,15 @@ int	parsing_map_checks(t_map *map)
 
 	if (!elements_valid(map))
 		return (ERROR);
-	// check_map = ft_strs_copy((const char **)map->layout, map->height);
-	// if (!check_map)
-	// 	return (msg(NULL, strerror(errno), ERROR));
-	// if (!map_solvable(check_map, map->player_x, map->player_y, map->height))
-	// {
-	// 	ft_strs_free(check_map, map->height);
-	// 	return (ERROR);
-	// }
-	// ft_strs_free(check_map, map->height);
+	check_map = ft_strs_copy((const char **)map->layout, map->height);
+	if (!check_map)
+		return (msg(NULL, strerror(errno), ERROR));
+	if (!map_closed(check_map, map->player_x, map->player_y))
+	{
+		ft_strs_free(check_map, map->height);
+		return (msg(STR_ERR_MAP, ERR_NOT_CLOSED, ERROR));
+	}
+	ft_strs_free(check_map, map->height);
 	return (EXIT_SUCCESS);
 }
 
@@ -59,7 +59,7 @@ bool	undefined_element(char *str)
 	int	i;
 
 	i = 0;
-	while (i < ft_strlen(str))
+	while (i < (int)ft_strlen(str))
 	{
 		if (str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E'
 			&& str[i] != ' ' && str[i] != '0' && str[i] != '1')
@@ -74,7 +74,7 @@ bool	player_pos_dup(t_map *map, char *str, int y)
 	int	i;
 
 	i = -1;
-	while (++i < ft_strlen(str))
+	while (++i < (int)ft_strlen(str))
 	{
 		if (str[i] == 'N' || str[i] == 'S' || str[i] == 'W' || str[i] == 'E')
 		{
@@ -96,4 +96,24 @@ bool	player_pos_dup(t_map *map, char *str, int y)
 		}
 	}
 	return (false);
+}
+
+bool	map_closed(char **map, int x, int y)
+{
+	if (map[y][x] == ' ' )
+		return (false);
+	else if (map[y][x] == 'N' || map[y][x] == 'S' || map[y][x] == 'E' || \
+		map[y][x] == 'W' || map[y][x] == '0')
+	{
+		map[y][x] = 'A';
+		if (!map_closed(map, x, y + 1))
+			return (false);
+		if (!map_closed(map, x, y - 1))
+			return (false);
+		if (!map_closed(map, x + 1, y))
+			return (false);
+		if (!map_closed(map, x - 1, y))
+			return (false);
+	}
+	return (true);
 }

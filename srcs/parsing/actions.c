@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 12:00:54 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 09:42:20 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int		check_args(t_state_machine *fsm, int i, int args);
 int		get_rgb(t_state_machine *fsm, int *element, int i);
-bool	rgb_values_valid(t_state_machine *fsm, int *rgb);
+bool	rgb_values_valid(int *rgb);
 
 void	set_texture(t_state_machine *fsm, char **element)
 {
@@ -52,10 +52,10 @@ void	set_color(t_state_machine *fsm, int *rgb)
 	if (i == -1)
 		return ;
 	j = get_rgb(fsm, rgb, i);
+	if (!rgb_values_valid(rgb))
+		return (fsm_error(fsm, error, fsm->line, ERR_ARG));
 	if (check_args(fsm, j, SEVERAL_ARGS) == ERROR)
 		return ;
-	if (!rgb_values_valid(fsm, rgb))
-		return (fsm_error(fsm, error, fsm->line, ERR_ARG));
 	fsm->info_count++;
 }
 
@@ -84,7 +84,7 @@ int	get_rgb(t_state_machine *fsm, int *rgb, int i)
 	return (i);
 }
 
-bool	rgb_values_valid(t_state_machine *fsm, int *rgb)
+bool	rgb_values_valid(int *rgb)
 {
 	int	i;
 

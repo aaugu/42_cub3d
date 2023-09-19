@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:56:46 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 11:42:05 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 09:58:37 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define ERR_ARG "invalid argument value"
 # define ERR_UNDEFINED "undefined element in map"
 # define ERR_PLAYER_DUP "should be only one player"
+# define ERR_NOT_CLOSED "map not closed"
 
 # define NO_ARG 0
 # define SEVERAL_ARGS 1
@@ -74,7 +75,7 @@ int		parsing_map_checks(t_map *map);
 //state machine
 void	state_idle(t_state_machine *fsm, t_map *map);
 void	state_information(t_state_machine *fsm, t_map *map, int position);
-void	state_map(t_state_machine *fsm, t_map *map);
+void	state_map(t_state_machine *fsm);
 void	set_texture(t_state_machine *fsm, char **element);
 void	set_color(t_state_machine *fsm, int *element);
 void	fsm_error(t_state_machine *fsm, t_state state, char *arg, char *str);

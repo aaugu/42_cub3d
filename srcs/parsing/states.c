@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:54:27 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/18 12:07:18 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 09:59:00 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ void	start_map(t_state_machine *fsm, int position)
 	fsm->count_map_width = ft_strlen(fsm->line);
 }
 
-void	state_map(t_state_machine *fsm, t_map *map)
+void	state_map(t_state_machine *fsm)
 {
 	if (is_empty_line(fsm->line) == true)
-		fsm_error(fsm, error, STR_ERR_MAP, "Map not closed");
+		fsm_error(fsm, error, STR_ERR_MAP, ERR_NOT_CLOSED);
 	else
 	{
 		fsm->count_map_height++;
-		if (ft_strlen(fsm->line) > fsm->count_map_width)
+		if ((int)ft_strlen(fsm->line) > fsm->count_map_width)
 			fsm->count_map_width = ft_strlen(fsm->line);
 	}
 }
@@ -90,7 +90,7 @@ bool	is_empty_line(char *str)
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\n')
 		i++;
-	if (i == ft_strlen(str))
+	if (i == (int)ft_strlen(str))
 		return (true);
 	return (false);
 }
