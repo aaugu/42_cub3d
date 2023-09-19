@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"locale": "c",
+		"libft.h": "c",
+		"parsing.h": "c",
+		"message.h": "c",
+		"chrono": "c",
+		"errno.h": "c",
+		"string": "c",
+		"__node_handle": "c"
+	}
+}
