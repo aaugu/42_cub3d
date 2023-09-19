@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:03:29 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/18 13:49:08 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/19 11:27:09 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	calculate_line_height(t_ray *ray, t_data *data, t_player *player)
 }
 
 /* raycasting:
- * calsue le raycasting
+ * calcule le raycasting
  */
 int	raycasting(t_player *player, t_data *data)
 {
