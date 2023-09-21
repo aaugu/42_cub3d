@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:18:48 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/14 13:23:55 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:51:12 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "bonus.h"
 
 void	init_img(t_data *data, t_img *image, int width, int height)
 {

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   message.c                                          :+:      :+:    :+:   */
+/*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 11:20:42 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/14 13:39:02 by aaugu            ###   ########.fr       */
+/*   Created: 2023/09/19 14:14:47 by aaugu             #+#    #+#             */
+/*   Updated: 2023/09/19 14:16:40 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../../includes/message.h"
+#ifndef BONUS_H
+# define BONUS_H
 
-int	msg(char *arg, char *str, int exit_code)
-{
-	printf("Error\n");
-	if (arg)
-		printf("%s: %s\n", arg, str);
-	else
-		printf("%s\n", str);
-	return (exit_code);
-}
+/* ***********************************************************************	*/
+/*							MACRO											*/
+/* ***********************************************************************	*/
+
+// BONUS TOGGLE
+# ifndef BONUS
+#  define BONUS 0
+# endif
+
+#endif

@@ -6,16 +6,16 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 10:13:35 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 10:58:19 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <stdlib.h>
 #include <errno.h>
-#include "../../includes/parsing.h"
-#include "../../includes/message.h"
-#include "../../libft/include/libft.h"
+#include "parsing_map.h"
+#include "parsing_state_machine.h"
+#include "libft.h"
 
 int		state_machine(t_map *map, int fd);
 void	init_state_machine(t_state_machine *fsm);
@@ -28,7 +28,7 @@ int	parsing_map_infos(t_map *map, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (msg(filename, strerror(errno), ERROR));
+		return (parsing_error(map, filename, strerror(errno), ERROR));
 	map_position = state_machine(map, fd);
 	close(fd);
 	return (map_position);
@@ -41,7 +41,7 @@ int	state_machine(t_map *map, int fd)
 
 	init_state_machine(&fsm);
 	i = 1;
-	while (fsm.state != error && fsm.state != malloc_err)
+	while (fsm.state != error)
 	{
 		fsm.line = get_next_line(fd);
 		if (!fsm.line)
@@ -50,7 +50,7 @@ int	state_machine(t_map *map, int fd)
 		free(fsm.line);
 		i++;
 	}
-	if (fsm.state == error || fsm.state == malloc_err)
+	if (fsm.state == error)
 		return (ERROR);
 	map->height = fsm.count_map_height;
 	map->width = fsm.count_map_width - 1;
@@ -81,5 +81,5 @@ void	fsm_error(t_state_machine *fsm, t_state state, char *arg, char *str)
 {
 	fsm->state = state;
 	if (str)
-		msg(arg, str, EXIT_FAILURE);
+		parsing_msg(arg, str);
 }

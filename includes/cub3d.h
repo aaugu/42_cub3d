@@ -3,34 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/14 10:55:37 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:32:17 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../libft/include/libft.h"
+# include "../libft/libft.h"
 # include "../mlx/mlx.h"
 # include "colors.h"
+# include "bonus.h"
 # include <errno.h>
 # include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <unistd.h>
 
-
 /* ***********************************************************************	*/
 /*							MACRO											*/
 /* ***********************************************************************	*/
-
-// BONUS TOGGLE
-# ifndef BONUS
-#  define BONUS 0
-# endif
 
 // ERROR MESSAGES
 # define ERR_USAGE "usage: ./cub3d <path/to/map.cub>"
@@ -38,7 +33,6 @@
 # define ERR_MLX_WIN "Could not create mlx window"
 # define ERR_MLX_IMG "Could not create mlx image"
 # define ERR_MALLOC "Could not allocate memory"
-
 
 // Taille de la fenêtre
 # define WIN_WIDTH 640
@@ -54,14 +48,6 @@ enum e_output
 	ERR,
 	BREAK,
 	CONTINUE
-};
-
-enum e_texture_index
-{
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST
 };
 
 /* ***********************************************************************	*/
@@ -154,6 +140,8 @@ int		quit_cub3d(t_data *data);
 /* exit/free_data.c */
 void	free_tab(void **tab);
 int		free_data(t_data *data);
+
+int		get_parsing_infos(t_data *data, char *filename);
 
 /* init/init_data.c*/
 void	init_data(t_data *data);
