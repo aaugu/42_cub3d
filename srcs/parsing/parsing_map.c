@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 15:16:37 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:07:23 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	init_parsing_map(t_map *map)
 	map->north = NULL;
 	map->west = NULL;
 	map->south = NULL;
+	map->layout = NULL;
 	map->f_color[0] = -1;
 	map->f_color[1] = -1;
 	map->f_color[2] = -1;
 	map->c_color[0] = -1;
 	map->c_color[1] = -1;
 	map->c_color[2] = -1;
-	map->layout = NULL;
 	if (BONUS)
 		map->valid_elements = ft_strdup("01 SEWN");
 	else
@@ -75,4 +75,11 @@ void	parsing_map_free(t_map *map)
 		free(map->valid_env);
 	if (map->layout)
 		ft_strs_free(map->layout, map->height);
+	map->east = NULL;
+	map->north = NULL;
+	map->west = NULL;
+	map->south = NULL;
+	map->layout = NULL;
+	map->valid_elements = NULL;
+	map->valid_env = NULL;
 }

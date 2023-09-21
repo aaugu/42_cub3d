@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:57:33 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 10:58:19 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	state_machine(t_map *map, int fd)
 	{
 		fsm.line = get_next_line(fd);
 		if (!fsm.line)
-			return (parsing_error(map, NULL, strerror(errno), ERROR));
+			break ;
 		execute_state_machine(&fsm, map, i);
 		free(fsm.line);
 		i++;
@@ -81,5 +81,5 @@ void	fsm_error(t_state_machine *fsm, t_state state, char *arg, char *str)
 {
 	fsm->state = state;
 	if (str)
-		parsing_msg(arg, str, EXIT_FAILURE);
+		parsing_msg(arg, str);
 }

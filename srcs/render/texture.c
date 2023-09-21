@@ -6,11 +6,12 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/19 14:51:12 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 10:18:07 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "orientation.h"
 
 /* init_texture_pixels:
  * reset le tableau si besoin puis realloue de la memoire

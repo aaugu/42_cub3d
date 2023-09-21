@@ -19,6 +19,7 @@ OBJ_D 	=	objs/
 
 SRC		=	main \
 			error \
+			cub3d/init_cub3d \
 			exit/exit \
 			exit/free_data \
 			init/init_data \
@@ -47,6 +48,7 @@ MLX		=	mlx/libmlx.a
 
 $(OBJ_D)%.o : $(SRC_D)%.c
 			@mkdir -p $(OBJ_D)
+			@mkdir -p $(OBJ_D)/cub3d
 			@mkdir -p $(OBJ_D)/exit
 			@mkdir -p $(OBJ_D)/init
 			@mkdir -p $(OBJ_D)/render

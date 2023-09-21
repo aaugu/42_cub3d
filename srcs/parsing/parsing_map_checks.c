@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:52:55 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:07:36 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ bool	undefined_element(char *str, char *valid_elements)
 	i = 0;
 	while (i < (int)ft_strlen(str))
 	{
-		if (strchr(valid_elements, str[i]))
+		if (!strchr(valid_elements, str[i]))
 			return (true);
 		i++;
 	}

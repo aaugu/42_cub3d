@@ -6,13 +6,16 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 14:51:12 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:31:42 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
 #include "cub3d.h"
 #include "bonus.h"
 #include "key_macos.h"
+
+bool	extension_valid(const char *filename);
 
 static void	print_controls(void)
 {
@@ -89,16 +92,29 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	(void)av;
-	if (ac != 1)
+	if (ac != 2 || extension_valid(av[1]) == false)
 		return (err_msg("Usage", ERR_USAGE, 1));
 	init_data(&data);
-	// test_map_info(&data);
+	if (get_parsing_infos(&data, av[1]) == ERR)
+		return (ERR);
 	init_mlx(&data);
 	init_textures(&data);
 	print_controls();
 	render_images(&data);
 	listen_for_input(&data);
-	//mlx_loop_hook(data.mlx, render, &data);
+	// mlx_loop_hook(data.mlx, render, &data);
 	mlx_loop(data.mlx);
 	return (0);
+}
+
+bool	extension_valid(const char *filename)
+{
+	char	*extension;
+
+	extension = ft_strrchr(filename, '.');
+	if (!extension || ft_strlen(extension) > 4)
+		return (false);
+	if (ft_strcmp(extension, ".cub") == 0)
+		return (true);
+	return (false);
 }

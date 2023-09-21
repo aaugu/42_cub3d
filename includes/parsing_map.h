@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:00:22 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 15:16:29 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 10:15:50 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_map
 	int				player_y;
 	int				f_color[3];
 	int				c_color[3];
-	t_orientation	orientation;
+	int				orientation;
 	char			*north;
 	char			*south;
 	char			*west;
@@ -62,7 +62,7 @@ typedef struct s_map
 int		init_parsing_map(t_map *map);
 int		parsing_map(t_map *map, char *map_file);
 int		parsing_error(t_map *map, char *arg, char *str, int exit_code);
-int		parsing_msg(char *arg, char *str);
+void	parsing_msg(char *arg, char *str);
 void	parsing_map_free(t_map *map);
 
 int		parsing_map_infos(t_map *map, char *filename);
