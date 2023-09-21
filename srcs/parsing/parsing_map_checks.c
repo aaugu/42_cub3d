@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 11:07:36 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:37:49 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ bool	player_pos_dup(t_map *map, char *str, int y)
 			{
 				map->player_x = i;
 				map->player_y = y;
+				map->layout[y][i] = '0';
 				if (str[i] == 'N')
 					map->orientation = NORTH;
 				if (str[i] == 'S')
