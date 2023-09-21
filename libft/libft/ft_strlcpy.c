@@ -6,11 +6,11 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:03:16 by aaugu             #+#    #+#             */
-/*   Updated: 2023/01/26 10:58:31 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:01:27 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 /*
 The strlcpy() function copy strings with the same input parameters and output

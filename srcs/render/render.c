@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/18 14:19:03 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:16:25 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "bonus.h"
 
 void	set_image_pixel(t_img *image, int x, int y, int color)
 {

@@ -6,11 +6,11 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:13:03 by aaugu             #+#    #+#             */
-/*   Updated: 2023/01/26 10:47:32 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:01:27 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 int		ft_get_line_break(int fd, char **stash);
 char	*ft_get_line(char **stash);

@@ -6,11 +6,12 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:40:35 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/21 11:05:52 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:46:33 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "orientation.h"
 
 int	*xpm_to_img(t_data *data, char *path)
 {

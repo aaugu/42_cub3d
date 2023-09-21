@@ -6,11 +6,12 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/19 14:08:11 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:46:50 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "orientation.h"
 
 /* init_texture_pixels:
  * reset le tableau si besoin puis realloue de la memoire

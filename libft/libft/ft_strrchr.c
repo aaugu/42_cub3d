@@ -6,11 +6,11 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:19:34 by aaugu             #+#    #+#             */
-/*   Updated: 2023/01/26 10:58:50 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:01:27 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 /*
 The strrchr() function is identical to strchr(), except it locates the last

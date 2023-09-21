@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   parsing_map.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 10:56:46 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 09:58:37 by aaugu            ###   ########.fr       */
+/*   Created: 2023/09/11 14:00:22 by aaugu             #+#    #+#             */
+/*   Updated: 2023/09/21 10:15:50 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef PARSING_MAP_H
+# define PARSING_MAP_H
 
-# include <stdbool.h>
-# include "map.h"
-
+# include "orientation.h"
 /******************************************************************************
 *							      DEFINE									  *
 ******************************************************************************/
@@ -36,48 +34,39 @@
 # define SEVERAL_ARGS 1
 
 /******************************************************************************
-*							    	ENUM									  *
-******************************************************************************/
-
-typedef enum e_state
-{
-	idle,
-	information,
-	map_line,
-	error,
-	malloc_err,
-}	t_state;
-
-/******************************************************************************
 *							    STRUCTURES									  *
 ******************************************************************************/
 
-typedef struct s_state_machine
+typedef struct s_map
 {
-	t_state	state;
-	char	*line;
-	int		info_count;
-	int		count_map_width;
-	int		count_map_height;
-	int		map_position;
-}					t_state_machine;
+	int				width;
+	int				height;
+	int				player_x;
+	int				player_y;
+	int				f_color[3];
+	int				c_color[3];
+	int				orientation;
+	char			*north;
+	char			*south;
+	char			*west;
+	char			*east;
+	char			**layout;
+	char			*valid_elements;
+	char			*valid_env;
+}					t_map;
 
 /******************************************************************************
 *							    FUNCTIONS									  *
 ******************************************************************************/
 
-// parsing base
-int		parsing(t_map *map, char *map_file);
+int		init_parsing_map(t_map *map);
+int		parsing_map(t_map *map, char *map_file);
+int		parsing_error(t_map *map, char *arg, char *str, int exit_code);
+void	parsing_msg(char *arg, char *str);
+void	parsing_map_free(t_map *map);
+
 int		parsing_map_infos(t_map *map, char *filename);
 int		parsing_map_layout(t_map *map, char *filename, int map_position);
 int		parsing_map_checks(t_map *map);
-
-//state machine
-void	state_idle(t_state_machine *fsm, t_map *map);
-void	state_information(t_state_machine *fsm, t_map *map, int position);
-void	state_map(t_state_machine *fsm);
-void	set_texture(t_state_machine *fsm, char **element);
-void	set_color(t_state_machine *fsm, int *element);
-void	fsm_error(t_state_machine *fsm, t_state state, char *arg, char *str);
 
 #endif

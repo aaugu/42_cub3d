@@ -6,63 +6,63 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 11:17:23 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 11:37:49 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
-#include "../../includes/parsing.h"
-#include "../../includes/message.h"
-#include "../../libft/include/libft.h"
+#include <stdbool.h>
+#include "parsing_map.h"
+#include "bonus.h"
+#include "libft.h"
 
-bool	elements_valid(t_map *map);
-bool	undefined_element(char *str);
+bool	elements_valid(t_map *map, char *valid_elements);
+bool	undefined_element(char *str, char *valid_elements);
 bool	player_pos_dup(t_map *map, char *str, int y);
-bool	map_closed(char **map, int x, int y);
+bool	map_closed(char **map, int x, int y, char *valid_env);
 
 int	parsing_map_checks(t_map *map)
 {
 	char	**check_map;
 
-	if (!elements_valid(map))
+	if (!elements_valid(map, map->valid_elements))
 		return (ERROR);
 	check_map = ft_strs_copy((const char **)map->layout, map->height);
 	if (!check_map)
-		return (msg(NULL, strerror(errno), ERROR));
-	if (!map_closed(check_map, map->player_x, map->player_y))
+		return (parsing_error(map, NULL, strerror(errno), ERROR));
+	if (!map_closed(check_map, map->player_x, map->player_y, map->valid_env))
 	{
 		ft_strs_free(check_map, map->height);
-		return (msg(STR_ERR_MAP, ERR_NOT_CLOSED, ERROR));
+		return (parsing_error(map, STR_ERR_MAP, ERR_NOT_CLOSED, ERROR));
 	}
 	ft_strs_free(check_map, map->height);
 	return (EXIT_SUCCESS);
 }
 
-bool	elements_valid(t_map *map)
+bool	elements_valid(t_map *map, char *valid_elements)
 {
 	int		i;
 
 	i = 0;
 	while (i < map->height)
 	{
-		if (undefined_element(map->layout[i]))
-			return (msg(map->layout[i], ERR_UNDEFINED, false));
+		if (undefined_element(map->layout[i], valid_elements))
+			return (parsing_error(map, map->layout[i], ERR_UNDEFINED, false));
 		if (player_pos_dup(map, map->layout[i], i))
-			return (msg(map->layout[i], ERR_PLAYER_DUP, false));
+			return (parsing_error(map, map->layout[i], ERR_PLAYER_DUP, false));
 		i++;
 	}
 	return (true);
 }
 
-bool	undefined_element(char *str)
+bool	undefined_element(char *str, char *valid_elements)
 {
 	int	i;
 
 	i = 0;
 	while (i < (int)ft_strlen(str))
 	{
-		if (str[i] != 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E'
-			&& str[i] != ' ' && str[i] != '0' && str[i] != '1')
+		if (!strchr(valid_elements, str[i]))
 			return (true);
 		i++;
 	}
@@ -76,12 +76,13 @@ bool	player_pos_dup(t_map *map, char *str, int y)
 	i = -1;
 	while (++i < (int)ft_strlen(str))
 	{
-		if (str[i] == 'N' || str[i] == 'S' || str[i] == 'W' || str[i] == 'E')
+		if (strchr("SEWN", str[i]))
 		{
 			if (map->orientation == UNDEFINED)
 			{
 				map->player_x = i;
 				map->player_y = y;
+				map->layout[y][i] = '0';
 				if (str[i] == 'N')
 					map->orientation = NORTH;
 				if (str[i] == 'S')
@@ -98,21 +99,20 @@ bool	player_pos_dup(t_map *map, char *str, int y)
 	return (false);
 }
 
-bool	map_closed(char **map, int x, int y)
+bool	map_closed(char **map, int x, int y, char *valid_env)
 {
 	if (map[y][x] == ' ' )
 		return (false);
-	else if (map[y][x] == 'N' || map[y][x] == 'S' || map[y][x] == 'E' || \
-		map[y][x] == 'W' || map[y][x] == '0')
+	else if (strchr(valid_env, map[y][x]))
 	{
 		map[y][x] = 'A';
-		if (!map_closed(map, x, y + 1))
+		if (!map_closed(map, x, y + 1, valid_env))
 			return (false);
-		if (!map_closed(map, x, y - 1))
+		if (!map_closed(map, x, y - 1, valid_env))
 			return (false);
-		if (!map_closed(map, x + 1, y))
+		if (!map_closed(map, x + 1, y, valid_env))
 			return (false);
-		if (!map_closed(map, x - 1, y))
+		if (!map_closed(map, x - 1, y, valid_env))
 			return (false);
 	}
 	return (true);

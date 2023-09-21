@@ -6,11 +6,11 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:02:22 by aaugu             #+#    #+#             */
-/*   Updated: 2023/01/26 10:57:40 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/19 14:01:27 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 /*
 The memcmp() function compares byte string s1 against byte string s2. Both
