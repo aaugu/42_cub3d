@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 11:31:42 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/22 10:37:47 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,12 @@ void	listen_for_input(t_data *data)
 
 
 /*
-	data->texinfo.hex_floor = 0x8e8e8e;
-	data->texinfo.hex_ceiling = 0x54C8E6;
 	data->player.pos_x = (double)2 + 0.5;
 	data->player.pos_y = (double)4 + 0.5;
-
-	data->player.dir_x = 0;				// N : 	 0		S :	 0		E :	1		W :	-1
-	data->player.dir_y = -1;			//		-1			 1			0			 0
-	data->player.plane_x = 0.66;		//		 0.66		-0.66		0			 0
-	data->player.plane_y = 0;			//		 0			 0			0.66		-0.66
-	data->map_height = 5;
-	data->map_width = 5;
+	data->player.dir_x = 0;			// N : 	 0		S :	 0		E :	1		W :	-1
+	data->player.dir_y = -1;		//		-1			 1			0			 0
+	data->player.plane_x = 0.66;	//		 0.66		-0.66		0			 0
+	data->player.plane_y = 0;		//		 0			 0			0.66		-0.66
 */
 
 int	main(int ac, char **av)

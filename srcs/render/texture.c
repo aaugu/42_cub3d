@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/21 10:18:07 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/22 14:59:02 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	update_texture_pixels(t_data *data, t_texinfo *tex, t_ray *ray, int x)
 	get_texture_index(data, ray);
 	tex->x = (int)(ray->wall_x * tex->size);
 	if ((ray->side == 0 && ray->dir_x < 0)
-		|| (ray->side == 1 && ray->dir_y > 0))
-		tex->x = tex->size - tex->x - 1;
+		|| (ray->side == 1 && ray->dir_y > 0))		// si on est est tourné vers le sud ou l'ouest
+		tex->x = tex->size - tex->x - 1;			// => on inverse le sens de lecture de la texture pour la lire correctement
 	tex->step = 1.0 * tex->size / ray->line_height;
 	tex->pos = (ray->draw_start - data->win_height / 2
 			+ ray->line_height / 2) * tex->step;
