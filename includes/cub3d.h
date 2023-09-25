@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/21 14:57:41 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/22 13:41:08 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,21 +95,21 @@ typedef struct s_player
 
 typedef struct s_ray
 {
-	double	camera_x;
-	double	dir_x;
-	double	dir_y;
-	int		map_x;
-	int		map_y;
+	double	camera_x;		// 
+	double	dir_x;			// 
+	double	dir_y;			// 
+	int		map_x;			// position x de la case de la map
+	int		map_y;			// position y de la case de la map
 	int		step_x;
 	int		step_y;
 	double	sidedist_x;
 	double	sidedist_y;
 	double	deltadist_x;
-	double	deltadist_y;
+	double	deltadist_y;	// distance au prochaine coordonnée
 	double	wall_dist;
 	double	wall_x;
 	int		side;
-	int		line_height;		// hauteur du mur
+	int		line_height;	// hauteur du mur
 	int		draw_start;
 	int		draw_end;
 }	t_ray;
