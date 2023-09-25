@@ -25,6 +25,7 @@ SRC		=	main \
 			init/init_data \
 			init/init_mlx \
 			init/init_texture \
+			mouvement/player_move \
 			parsing/parsing_error \
 			parsing/parsing_map_checks \
 			parsing/parsing_map_infos \
@@ -51,6 +52,7 @@ $(OBJ_D)%.o : $(SRC_D)%.c
 			@mkdir -p $(OBJ_D)/cub3d
 			@mkdir -p $(OBJ_D)/exit
 			@mkdir -p $(OBJ_D)/init
+			@mkdir -p $(OBJ_D)/mouvement
 			@mkdir -p $(OBJ_D)/render
 			@mkdir -p $(OBJ_D)/parsing
 			@($(CC) $(FLAGS) -DBONUS=$(BONUS) $(INCLUDE) -c $< -o $@)

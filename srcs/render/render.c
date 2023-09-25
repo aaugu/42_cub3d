@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/19 14:16:25 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 13:59:25 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,13 @@ void	render_images(t_data *data)
 	render_raycast(data);
 	/*if (BONUS)
 		render_minimap(data);*/
+}
+
+int	render(t_data *data)
+{
+	data->player.moved += move_player(data);
+	if (data->player.moved == 0)
+		return (0);
+	render_images(data);
+	return (0);
 }

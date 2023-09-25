@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/21 11:32:17 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 14:00:38 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,10 @@ typedef struct s_player
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	int		moved;
+	int		move_x;
+	int		move_y;
+	int		rotate;
 }	t_player;
 
 typedef struct s_ray
@@ -158,8 +162,12 @@ void	init_texture_img(t_data *data, t_img *image, char *path);
 void	init_textures(t_data *data);
 void	init_texinfo(t_texinfo *textures);
 
+/* movement/player_move.c */
+int		move_player(t_data *data);
+
 /* render/render.c */
 void	render_images(t_data *data);
+int		render(t_data *data);
 
 /* render/raycasting.c */
 int		raycasting(t_player *player, t_data *data);

@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 11:45:56 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/21 13:52:43 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,18 @@ int	key_press_handler(int key, t_data *data)
 {
 	if (key == MAINP_ESC)
 		quit_cub3d(data);
-	// if (key == MAINP_W)
-	// 	data->player.move_y = 1;
-	// if (key == MAINP_A)
-	// 	data->player.move_x = -1;
-	// if (key == MAINP_S)
-	// 	data->player.move_y = -1;
-	// if (key == MAINP_D)
-	// 	data->player.move_x = 1;
-	// if (key == ARROW_LEFT)
-	// 	data->player.rotate -= 1;
-	// if (key == ARROW_RIGHT)
-	// 	data->player.rotate += 1;
+	if (key == MAINP_W)
+		data->player.move_y = 1;
+	if (key == MAINP_A)
+		data->player.move_x = -1;
+	if (key == MAINP_S)
+		data->player.move_y = -1;
+	if (key == MAINP_D)
+		data->player.move_x = 1;
+	if (key == ARROW_LEFT)
+		data->player.rotate -= 1;
+	if (key == ARROW_RIGHT)
+		data->player.rotate += 1;
 	return (0);
 }
 
@@ -70,18 +70,18 @@ int	key_release_handler(int key, t_data *data)
 {
 	if (key == MAINP_ESC)
 		quit_cub3d(data);
-	// if (key == MAINP_W && data->player.move_y == 1)
-	// 	data->player.move_y = 0;
-	// if (key == MAINP_A && data->player.move_x == -1)
-	// 	data->player.move_x += 1;
-	// if (key == MAINP_S && data->player.move_y == -1)
-	// 	data->player.move_y = 0;
-	// if (key == MAINP_D && data->player.move_x == 1)
-	// 	data->player.move_x -= 1;
-	// if (key == ARROW_LEFT && data->player.rotate <= 1)
-	// 	data->player.rotate = 0;
-	// if (key == ARROW_RIGHT && data->player.rotate >= -1)
-	// 	data->player.rotate = 0;
+	if (key == MAINP_W && data->player.move_y == 1)
+		data->player.move_y = 0;
+	if (key == MAINP_A && data->player.move_x == -1)
+		data->player.move_x += 1;
+	if (key == MAINP_S && data->player.move_y == -1)
+		data->player.move_y = 0;
+	if (key == MAINP_D && data->player.move_x == 1)
+		data->player.move_x -= 1;
+	if (key == ARROW_LEFT && data->player.rotate <= 1)
+		data->player.rotate = 0;
+	if (key == ARROW_RIGHT && data->player.rotate >= -1)
+		data->player.rotate = 0;
 	return (0);
 }
 
@@ -126,7 +126,7 @@ int	main(int ac, char **av)
 	print_controls();
 	render_images(&data);
 	listen_for_input(&data);
-	// mlx_loop_hook(data.mlx, render, &data);
+	mlx_loop_hook(data.mlx, render, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
