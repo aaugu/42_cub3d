@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:44:12 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 14:37:12 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/29 11:22:19 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ void	get_player_orientation(t_player *player, int orientation)
 		player->plane_x = -0.66;
 		player->plane_y = 0;
 	}
-	else if (orientation == EAST)
+	else if (orientation == NORTH)
 	{
-		player->dir_x = 1;
-		player->dir_y = 0;
-		player->plane_x = 0;
-		player->plane_y = 0.66;
+		player->dir_x = 0;
+		player->dir_y = -1;
+		player->plane_x = 0.66;
+		player->plane_y = 0;
 	}
 	else
 		get_player_orientation_2(player, orientation);
@@ -107,11 +107,11 @@ void	get_player_orientation_2(t_player *player, int orientation)
 		player->plane_x = 0;
 		player->plane_y = -0.66;
 	}
-	else if (orientation == NORTH)
+	else if (orientation == EAST)
 	{
-		player->dir_x = 0;
-		player->dir_y = -1;
-		player->plane_x = 0.66;
-		player->plane_y = 0;
+		player->dir_x = 1;
+		player->dir_y = 0;
+		player->plane_x = 0;
+		player->plane_y = 0.66;
 	}
 }

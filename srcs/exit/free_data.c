@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:55:35 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/18 14:21:23 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/25 13:15:14 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	free_texinfo(t_texinfo *textures)
 		free(textures->west);
 	if (textures->east)
 		free(textures->east);
-	free(textures);
 }
 
 int	free_data(t_data *data)

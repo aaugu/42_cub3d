@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/21 14:00:38 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/02 10:49:20 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
 
+# define MOVESPEED 0.05
+# define ROTEDSPEED 0.005
+
+
 // taille ttextures mures
 # define TEX_SIZE 64
 
@@ -65,21 +69,22 @@ typedef struct s_img
 
 typedef struct s_texinfo
 {
-	char			*north;
-	char			*south;
-	char			*west;
-	char			*east;
-	int				*floor;
-	int				*ceiling;
-	unsigned long	hex_floor;
-	unsigned long	hex_ceiling;
-	int				size;
-	int				index;
-	double			step;
-	double			pos;
-	int				x;
-	int				y;
+	char			*north;			// path de la texture
+	char			*south;			// path de la texture
+	char			*west;			// path de la texture
+	char			*east;			// path de la texture
+	int				*floor;			// à retirer
+	int				*ceiling;		// à retirer
+	unsigned long	hex_floor;		// couleur en valeur hexadécimale
+	unsigned long	hex_ceiling;	// couleur en valeur hexadécimale
+	int				size;			// taille de la texture (ici, carrée et 64)
+	int				index;			// définit l'orientation (S, E, W, N) pour récup son image dans data.textures[index]
+	double			step;			// Le pas auquel on se déplace dans l'image de la texture
+	double			pos;			// position actuelle du pixel en hauteur
+	int				x;				// position x sur la map
+	int				y;				// position y sur la map
 }	t_texinfo;
+
 
 typedef struct s_player
 {
@@ -98,39 +103,39 @@ typedef struct s_player
 
 typedef struct s_ray
 {
-	double	camera_x;
-	double	dir_x;
-	double	dir_y;
-	int		map_x;
-	int		map_y;
+	double	camera_x;		// 
+	double	dir_x;			// 
+	double	dir_y;			// 
+	int		map_x;			// position x de la case de la map
+	int		map_y;			// position y de la case de la map
 	int		step_x;
 	int		step_y;
 	double	sidedist_x;
 	double	sidedist_y;
 	double	deltadist_x;
-	double	deltadist_y;
+	double	deltadist_y;	// distance au prochaine coordonnée
 	double	wall_dist;
 	double	wall_x;
 	int		side;
-	int		line_height;
+	int		line_height;	// hauteur du mur
 	int		draw_start;
 	int		draw_end;
 }	t_ray;
 
 typedef struct s_data
 {
-	void		*mlx;				//pointeur de l'affichage
-	void		*win;				//pointeur de la fenetre
-	int			win_height;			//lougeur de la fenetre
-	int			win_width;			//hauteur de la fenetre
-	int			map_height;			//longeur de la map
-	int			map_width;			//hauteur de la map
-	int			**textures;			//tableau de texture
-	int			**texture_pixels;	//tableau des pixels pour les images
-	char		**map;				//tableau pour la map
-	t_texinfo	texinfo;			//info sur les textures
-	t_player	player;				//info sur le player
-	t_ray		ray;				//raycasting
+	void		*mlx;				// pointeur de l'affichage
+	void		*win;				// pointeur de la fenetre
+	int			win_height;			// longueur de la fenetre
+	int			win_width;			// hauteur de la fenetre
+	int			map_height;			// longeur de la map
+	int			map_width;			// hauteur de la map
+	int			**textures;			// tableau des images des images des textures converties depuis xpm
+	int			**texture_pixels;	// tableau des pixels pour les images
+	char		**map;				// layout de la map
+	t_texinfo	texinfo;			// info sur les textures
+	t_player	player;				// info sur le player
+	t_ray		ray;				// raycasting
 }	t_data;
 
 /* ***********************************************************************	*/

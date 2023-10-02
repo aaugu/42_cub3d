@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 13:52:43 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/02 11:51:26 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,15 @@ static void	print_controls(void)
 	printf(CYAN "\tD" RESET ": strafe right\n");
 	printf(CYAN "\t<" RESET ": rotate left\t");
 	printf(CYAN "\t>" RESET ": rotate right\n");
-	printf(CYAN "\tesc" RESET ": close cub3D\n");
 	if (BONUS)
-		printf(CYAN "\tMouse" RESET ": rotate view\n");
+		printf(CYAN "\tMouse" RESET ": rotate view");
+	printf(CYAN "\tesc" RESET ": close cub3D\n");
 	printf("\n");
 }
 
+/* key_press_handler:
+ * En fonction de la touche pressé, enregistre l'ordre de mouvement ou esc
+ */
 int	key_press_handler(int key, t_data *data)
 {
 	if (key == MAINP_ESC)
@@ -66,6 +69,9 @@ int	key_press_handler(int key, t_data *data)
 	return (0);
 }
 
+/* key_release_handler:
+ * En fonction de la touche libéré, remet l'ordre de mouvement à 0 ou esc
+ */
 int	key_release_handler(int key, t_data *data)
 {
 	if (key == MAINP_ESC)
@@ -85,6 +91,10 @@ int	key_release_handler(int key, t_data *data)
 	return (0);
 }
 
+/* listen_for_input:
+ * quit cub3d si la fenetre est fermé avec la croix ou esc
+ * check si une touche voulu par le programme est pressé ou libéré.
+ */
 void	listen_for_input(t_data *data)
 {
 	mlx_hook(data->win, ClientMessage, NoEventMask, quit_cub3d, data);
@@ -98,17 +108,12 @@ void	listen_for_input(t_data *data)
 
 
 /*
-	data->texinfo.hex_floor = 0x8e8e8e;
-	data->texinfo.hex_ceiling = 0x54C8E6;
 	data->player.pos_x = (double)2 + 0.5;
 	data->player.pos_y = (double)4 + 0.5;
-
-	data->player.dir_x = 0;				// N : 	 0		S :	 0		E :	1		W :	-1
-	data->player.dir_y = -1;			//		-1			 1			0			 0
-	data->player.plane_x = 0.66;		//		 0.66		-0.66		0			 0
-	data->player.plane_y = 0;			//		 0			 0			0.66		-0.66
-	data->map_height = 5;
-	data->map_width = 5;
+	data->player.dir_x = 0;			// N : 	 0		S :	 0		E :	1		W :	-1
+	data->player.dir_y = -1;		//		-1			 1			0			 0
+	data->player.plane_x = 0.66;	//		 0.66		-0.66		0			 0
+	data->player.plane_y = 0;		//		 0			 0			0.66		-0.66
 */
 
 int	main(int ac, char **av)

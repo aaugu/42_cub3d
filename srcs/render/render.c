@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/21 13:59:25 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/29 12:48:59 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ void	render_images(t_data *data)
 		render_minimap(data);*/
 }
 
+/* render:
+ * Check si la demande d'un mouvement a été enregistré puis aplique le mouvement .
+ * Si il y a eu un mouvement refait un render de l'images.
+ * data->player.moved fonctionne comme un test si un mouvement n'a pas été possible.
+ * exemple bord de map puis colision avec des murs.
+ */
 int	render(t_data *data)
 {
 	data->player.moved += move_player(data);

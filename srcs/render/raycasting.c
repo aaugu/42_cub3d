@@ -6,16 +6,18 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:03:29 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/22 14:39:42 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/09/28 13:44:29 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /*  init_raycasting_info :
- *  camera_x		> position de la camera
+ *  camera_x		> visée de la camera (quelle position dans l'axe x de 
+ 						la fenêtre)
  *  				  (-1 = a gauche, 0 = centre, 1 = a droite)
- *  dir_x/y			> direction des rayons
+ *  dir_x/y			> direction des rayons (arrivée du vecteur depuis la 
+ * 						caméra)
  *  map_x/y			> coordonnées sur la map
  *  deltadist_x/y	> distance au prochaine coordonnée
  */
@@ -36,7 +38,7 @@ void	init_raycasting_info(int x, t_ray *ray, t_player *player)
  * initialisation du DDA "Digital Differential Analysis"
  * L'algo va passer de carré en carré à chaque boucle en x et y
  * sidedist_x/y		> distance point de depart du rayon 
- * 					  à la prochaine position x/y
+ * 					  à la prochaine position x/y (de la case)
  * 
  * si x ou y < 0 le prochain x/y est sur la gauche
  * si x ou y > 0 le prochain x/y est sur la droite
@@ -100,6 +102,10 @@ void	perform_dda(t_data *data, t_ray *ray)
 	}
 }
 
+/* 
+*	wall_x 		> permet de déterminer plus tard quelle colonne de la 
+					texture, déterminé selon la side. 
+*/
 void	calculate_line_height(t_ray *ray, t_data *data, t_player *player)
 {
 	if (ray->side == 0)
