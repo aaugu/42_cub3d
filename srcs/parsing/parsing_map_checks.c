@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map_checks.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 14:09:34 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/25 11:12:34 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ bool	player_pos_dup(t_map *map, char *str, int y)
 			{
 				map->player_x = i;
 				map->player_y = y;
-				
 				if (str[i] == 'N')
 					map->orientation = NORTH;
 				if (str[i] == 'S')

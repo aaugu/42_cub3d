@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/22 14:59:02 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/25 10:44:27 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	update_texture_pixels(t_data *data, t_texinfo *tex, t_ray *ray, int x)
 		tex->pos += tex->step;
 		color = data->textures[tex->index][tex->size * tex->y + tex->x];
 		if (tex->index == NORTH || tex->index == EAST)
-			color = (color >> 1) & 8355711;  /*assombrissement*/
+			color = (color >> 1) & 8355711;
 		if (color > 0)
 			data->texture_pixels[y][x] = color;
 		y++;

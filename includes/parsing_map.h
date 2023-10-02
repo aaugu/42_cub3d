@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:00:22 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 10:15:50 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/02 12:06:08 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ERR_UNDEFINED "undefined element in map"
 # define ERR_PLAYER_DUP "should be only one player"
 # define ERR_NOT_CLOSED "map not closed"
+# define ERR_EMPTY_LINE "empty line in map"
 
 # define NO_ARG 0
 # define SEVERAL_ARGS 1

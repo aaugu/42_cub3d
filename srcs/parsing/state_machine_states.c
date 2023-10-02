@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   state_machine_states.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:54:27 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/19 13:27:07 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/02 12:06:43 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	start_map(t_state_machine *fsm, int position)
 void	state_map(t_state_machine *fsm)
 {
 	if (is_empty_line(fsm->line) == true)
-		fsm_error(fsm, error, STR_ERR_MAP, ERR_NOT_CLOSED);
+		fsm_error(fsm, error, STR_ERR_MAP, ERR_EMPTY_LINE);
 	else
 	{
 		fsm->count_map_height++;

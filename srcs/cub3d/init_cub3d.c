@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_cub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:44:12 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 13:50:54 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/29 11:22:19 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	get_parsing_infos(t_data *data, char *filename)
 		return (ERR);
 	data->map_height = map.height;
 	data->map_width = map.width;
-	map.layout[map.player_y][map.player_x] = '0';
 	data->map = ft_strs_copy((const char **)map.layout, map.height);
 	if (!data->map)
 		return (parsing_error(&map, NULL, strerror(errno), errno));
-	data->player.pos_x = (double)map.player_x + 0.5;
-	data->player.pos_y = (double)map.player_y + 0.5;
+	data->player.pos_x = (double) map.player_x + 0.5;
+	data->player.pos_y = (double) map.player_y + 0.5;
+	data->map[map.player_y][map.player_x] = '0';
 	get_player_orientation(&data->player, map.orientation);
 	if (get_textures(&data->texinfo, &map))
 		return (ERR);

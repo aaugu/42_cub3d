@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:36:54 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/22 09:43:47 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/25 11:12:36 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	init_img_clean(t_img *img)
+{
+	img->img = NULL;
+	img->addr = NULL;
+	img->pixel_bits = 0;
+	img->size_line = 0;
+	img->endian = 0;
+}
 
 void	init_player(t_player *player)
 {
@@ -21,6 +30,10 @@ void	init_player(t_player *player)
 	player->dir_y = 0.0;
 	player->plane_x = 0.0;
 	player->plane_y = 0.0;
+	player->moved = 0;
+	player->move_x = 0;
+	player->move_y = 0;
+	player->rotate = 0;
 }
 
 /* init_ray:

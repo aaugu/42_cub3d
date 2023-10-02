@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/22 10:37:47 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/02 11:51:26 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,60 @@ static void	print_controls(void)
 	printf(CYAN "\tD" RESET ": strafe right\n");
 	printf(CYAN "\t<" RESET ": rotate left\t");
 	printf(CYAN "\t>" RESET ": rotate right\n");
-	printf(CYAN "\tesc" RESET ": close cub3D\n");
 	if (BONUS)
-		printf(CYAN "\tMouse" RESET ": rotate view\n");
+		printf(CYAN "\tMouse" RESET ": rotate view");
+	printf(CYAN "\tesc" RESET ": close cub3D\n");
 	printf("\n");
 }
 
+/* key_press_handler:
+ * En fonction de la touche pressé, enregistre l'ordre de mouvement ou esc
+ */
 int	key_press_handler(int key, t_data *data)
 {
 	if (key == MAINP_ESC)
 		quit_cub3d(data);
+	if (key == MAINP_W)
+		data->player.move_y = 1;
+	if (key == MAINP_A)
+		data->player.move_x = -1;
+	if (key == MAINP_S)
+		data->player.move_y = -1;
+	if (key == MAINP_D)
+		data->player.move_x = 1;
+	if (key == ARROW_LEFT)
+		data->player.rotate -= 1;
+	if (key == ARROW_RIGHT)
+		data->player.rotate += 1;
 	return (0);
 }
 
+/* key_release_handler:
+ * En fonction de la touche libéré, remet l'ordre de mouvement à 0 ou esc
+ */
 int	key_release_handler(int key, t_data *data)
 {
 	if (key == MAINP_ESC)
 		quit_cub3d(data);
+	if (key == MAINP_W && data->player.move_y == 1)
+		data->player.move_y = 0;
+	if (key == MAINP_A && data->player.move_x == -1)
+		data->player.move_x += 1;
+	if (key == MAINP_S && data->player.move_y == -1)
+		data->player.move_y = 0;
+	if (key == MAINP_D && data->player.move_x == 1)
+		data->player.move_x -= 1;
+	if (key == ARROW_LEFT && data->player.rotate <= 1)
+		data->player.rotate = 0;
+	if (key == ARROW_RIGHT && data->player.rotate >= -1)
+		data->player.rotate = 0;
 	return (0);
 }
 
+/* listen_for_input:
+ * quit cub3d si la fenetre est fermé avec la croix ou esc
+ * check si une touche voulu par le programme est pressé ou libéré.
+ */
 void	listen_for_input(t_data *data)
 {
 	mlx_hook(data->win, ClientMessage, NoEventMask, quit_cub3d, data);
@@ -97,7 +131,7 @@ int	main(int ac, char **av)
 	print_controls();
 	render_images(&data);
 	listen_for_input(&data);
-	// mlx_loop_hook(data.mlx, render, &data);
+	mlx_loop_hook(data.mlx, render, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

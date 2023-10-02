@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 11:07:23 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/21 12:07:37 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	init_parsing_map(t_map *map)
 	map->c_color[1] = -1;
 	map->c_color[2] = -1;
 	if (BONUS)
-		map->valid_elements = ft_strdup("01 SEWN");
+		map->valid_elements = ft_strdup("01 SEWNP");
 	else
 		map->valid_elements = ft_strdup("01 SEWN");
 	if (!map->valid_elements)

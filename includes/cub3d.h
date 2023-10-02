@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/22 13:41:08 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/02 10:49:20 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@
 // Taille de la fenêtre
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
+
+# define MOVESPEED 0.05
+# define ROTEDSPEED 0.005
+
 
 // taille ttextures mures
 # define TEX_SIZE 64
@@ -84,13 +88,17 @@ typedef struct s_texinfo
 
 typedef struct s_player
 {
-	char	dir;		// c'est quoi ? à retirer ?
-	double	pos_x;		// position x actuelle sur la map
-	double	pos_y;		// position y actuelle sur la map
-	double	dir_x;		// coordonnée x du vecteur (rayon)
-	double	dir_y;		// coordonnée y du vecteur (rayon)
-	double	plane_x;	// coefficient de calcul de la coordonnée x du vecteur
-	double	plane_y;	// coefficient de calcul de la coordonnée y du vecteur
+	char	dir;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	int		moved;
+	int		move_x;
+	int		move_y;
+	int		rotate;
 }	t_player;
 
 typedef struct s_ray
@@ -159,8 +167,12 @@ void	init_texture_img(t_data *data, t_img *image, char *path);
 void	init_textures(t_data *data);
 void	init_texinfo(t_texinfo *textures);
 
+/* movement/player_move.c */
+int		move_player(t_data *data);
+
 /* render/render.c */
 void	render_images(t_data *data);
+int		render(t_data *data);
 
 /* render/raycasting.c */
 int		raycasting(t_player *player, t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:03:29 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/22 14:41:26 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/09/28 13:44:29 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	perform_dda(t_data *data, t_ray *ray)
 			|| ray->map_y > data->map_height - 0.25
 			|| ray->map_x > data->map_width - 0.25)
 			break ;
-		else if (data->map[ray->map_y][ray->map_x] > '0')
+		if (data->map[ray->map_y][ray->map_x] > '0')
 			hit = 1;
 	}
 }
