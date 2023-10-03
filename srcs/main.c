@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/02 11:51:26 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/02 16:12:43 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	key_press_handler(int key, t_data *data)
 		data->player.rotate -= 1;
 	if (key == ARROW_RIGHT)
 		data->player.rotate += 1;
+	if (key == MAINP_SPACE)
+		data->trigger = !data->trigger;
 	return (0);
 }
 
@@ -101,9 +103,9 @@ void	listen_for_input(t_data *data)
 	mlx_hook(data->win, DestroyNotify, NoEventMask, quit_cub3d, data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, key_press_handler, data);
 	mlx_hook(data->win, KeyRelease, KeyReleaseMask, key_release_handler, data);
-	/*if (BONUS)
+	if (BONUS)
 		mlx_hook(data->win, MotionNotify, PointerMotionMask,
-			mouse_motion_handler, data);*/
+			mouse_motion_handler, data);
 }
 
 
