@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:03:29 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 10:39:49 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 11:06:18 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ void	perform_dda(t_data *data, t_ray *ray)
 			|| ray->map_y > data->map_height - 0.25
 			|| ray->map_x > data->map_width - 0.25)
 			break ;
-		if (data->map[ray->map_y][ray->map_x] > '0')
+		if (data->map[ray->map_y][ray->map_x] > '0'
+			&& data->map[ray->map_y][ray->map_x] != 'O')
 			hit = 1;
 	}
 }

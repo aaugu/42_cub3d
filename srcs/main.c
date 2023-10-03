@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/02 16:12:43 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 11:34:11 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ static void	print_controls(void)
  */
 int	key_press_handler(int key, t_data *data)
 {
+	int	x;
+	int	y;
+
+	x = (int)floor(data->player.pos_x + data->player.dir_x);
+	y = (int)floor(data->player.pos_y + data->player.dir_y);
 	if (key == MAINP_ESC)
 		quit_cub3d(data);
 	if (key == MAINP_W)
@@ -67,7 +72,10 @@ int	key_press_handler(int key, t_data *data)
 	if (key == ARROW_RIGHT)
 		data->player.rotate += 1;
 	if (key == MAINP_SPACE)
-		data->trigger = !data->trigger;
+	{
+		if (data->map[y][x] == 'D' || data->map[y][x] == 'O')
+			data->trigger = !data->trigger;
+	}
 	return (0);
 }
 
@@ -108,7 +116,6 @@ void	listen_for_input(t_data *data)
 			mouse_motion_handler, data);
 }
 
-
 /*
 	data->player.pos_x = (double)2 + 0.5;
 	data->player.pos_y = (double)4 + 0.5;
@@ -117,7 +124,6 @@ void	listen_for_input(t_data *data)
 	data->player.plane_x = 0.66;	//		 0.66		-0.66		0			 0
 	data->player.plane_y = 0;		//		 0			 0			0.66		-0.66
 */
-
 int	main(int ac, char **av)
 {
 	t_data	data;
