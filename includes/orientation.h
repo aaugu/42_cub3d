@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   orientation.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:29:22 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 10:13:01 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/02 14:52:53 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef enum e_orientation
 	WEST,
 	SOUTH,
 	EAST,
+	DOOR,
+	DOOROPEN,
 	UNDEFINED,
 }	t_orientation;
 

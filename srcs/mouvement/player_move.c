@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:55:22 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/02 11:37:43 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 10:33:23 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_pos(t_data *data, double pos_x, double pos_y)
 		test = 1;
 	if (BONUS)
 	{
-		if (data->map[(int)floor(pos_y)][(int)floor(pos_x)] == '1')
+		if (data->map[(int)floor(pos_y)][(int)floor(pos_x)] > '0')
 			test = 0;
 	}
 	return (test);
@@ -93,13 +93,13 @@ int	move_player_right(t_data *data)
 	return (0);
 }
 
-int	rotate_player(t_data *data)
+int	rotate_player(t_data *data, double rotdir)
 {
 	double x;
 	double y;
 	double O;
 
-	O = ROTEDSPEED * data->player.rotate;
+	O = ROTEDSPEED * rotdir;
 	x = data->player.dir_x;
 	y = data->player.dir_y;
 	data->player.dir_x = cos(O) * x - sin(O) * y;
@@ -109,6 +109,35 @@ int	rotate_player(t_data *data)
 	data->player.plane_x = cos(O) * x - sin(O) * y;
 	data->player.plane_y = cos(O) * y + sin(O) * x;
 	return (1);
+}
+
+void	wrap_mouse_position(t_data *data, int x, int y)
+{
+	if (x > data->win_width - DIST_EDGE_MOUSE_WRAP)
+	{
+		x = DIST_EDGE_MOUSE_WRAP;
+		mlx_mouse_move(data->win, x, y);
+	}
+	if (x < DIST_EDGE_MOUSE_WRAP)
+	{
+		x = data->win_width - DIST_EDGE_MOUSE_WRAP;
+		mlx_mouse_move(data->win, x, y);
+	}
+}
+
+int	mouse_motion_handler(int x, int y, t_data *data)
+{
+	static int	old_x = WIN_WIDTH / 2;
+
+	wrap_mouse_position(data, x, y);
+	if (x == old_x)
+		return (0);
+	else if (x < old_x)
+		data->player.moved += rotate_player(data, -1);
+	else if (x > old_x)
+		data->player.moved += rotate_player(data, 1);
+	old_x = x;
+	return (0);
 }
 
 /* move_player:
@@ -132,7 +161,7 @@ int	move_player(t_data *data)
 	if (data->player.move_x == 1)
 		moved += move_player_right(data);
 	if (data->player.rotate != 0)
-		moved += rotate_player(data);
+		moved += rotate_player(data, data->player.rotate);
 	return (moved);
 }
 

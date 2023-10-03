@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/25 10:44:27 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 10:39:49 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ void	get_texture_index(t_data *data, t_ray *ray)
 			data->texinfo.index = SOUTH;
 		else
 			data->texinfo.index = NORTH;
+	}
+	if (BONUS)
+	{
+		if (data->map[ray->map_y][ray->map_x] == 'D')
+			data->texinfo.index = DOOR;
 	}
 }
 

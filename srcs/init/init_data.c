@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:36:54 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/25 11:12:36 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/02 16:12:41 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ void	init_data(t_data *data)
 	data->textures = NULL;
 	data->map_height = 0;
 	data->map_width = 0;
+	data->trigger = 0;
 }

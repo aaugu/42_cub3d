@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/02 10:49:20 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 09:58:06 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@
 # define WIN_HEIGHT 480
 
 # define MOVESPEED 0.05
-# define ROTEDSPEED 0.005
+# define ROTEDSPEED 0.05
 
+# define DIST_EDGE_MOUSE_WRAP 10
 
 // taille ttextures mures
 # define TEX_SIZE 64
@@ -136,6 +137,7 @@ typedef struct s_data
 	t_texinfo	texinfo;			// info sur les textures
 	t_player	player;				// info sur le player
 	t_ray		ray;				// raycasting
+	bool		trigger;
 }	t_data;
 
 /* ***********************************************************************	*/
@@ -169,6 +171,7 @@ void	init_texinfo(t_texinfo *textures);
 
 /* movement/player_move.c */
 int		move_player(t_data *data);
+int		mouse_motion_handler(int x, int y, t_data *data);
 
 /* render/render.c */
 void	render_images(t_data *data);

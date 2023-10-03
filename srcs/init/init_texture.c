@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:40:35 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/02 12:25:05 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 10:29:51 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,16 @@ int	*xpm_to_img(t_data *data, char *path)
 
 void	init_textures(t_data *data)
 {
-	data->textures = ft_calloc(5, sizeof * data->textures);
+	data->textures = ft_calloc(7, sizeof * data->textures);
 	if (!data->textures)
 		clean_exit(data, err_msg(NULL, ERR_MALLOC, FAILURE));
 	data->textures[NORTH] = xpm_to_img(data, data->texinfo.north);
 	data->textures[SOUTH] = xpm_to_img(data, data->texinfo.south);
 	data->textures[EAST] = xpm_to_img(data, data->texinfo.east);
 	data->textures[WEST] = xpm_to_img(data, data->texinfo.west);
+	if (BONUS)
+		data->textures[DOOR] = xpm_to_img(data, "textures/test/door.xpm");
+
 }
 
 void	init_texinfo(t_texinfo *textures)
