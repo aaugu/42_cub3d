@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/03 11:34:11 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 14:33:08 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	key_press_handler(int key, t_data *data)
 		data->player.rotate -= 1;
 	if (key == ARROW_RIGHT)
 		data->player.rotate += 1;
+	if (key == M)
+		data->minimap = !data->minimap;
 	if (key == MAINP_SPACE)
 	{
 		if (data->map[y][x] == 'D' || data->map[y][x] == 'O')
