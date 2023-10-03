@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:55:22 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 10:33:23 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 11:08:48 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	check_pos(t_data *data, double pos_x, double pos_y)
 		test = 1;
 	if (BONUS)
 	{
-		if (data->map[(int)floor(pos_y)][(int)floor(pos_x)] > '0')
+		if (data->map[(int)floor(pos_y)][(int)floor(pos_x)] > '0'
+			&& data->map[(int)floor(pos_y)][(int)floor(pos_x)] != 'O')
 			test = 0;
 	}
 	return (test);

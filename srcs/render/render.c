@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 10:38:45 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 11:27:17 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,30 @@ void	render_images(t_data *data)
 		render_minimap(data);*/
 }
 
+int		ft_opendoor(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = (int)floor(data->player.pos_x + data->player.dir_x);
+	y = (int)floor(data->player.pos_y + data->player.dir_y);
+	if (x == (int)floor(data->player.pos_x) && y == (int)floor(data->player.pos_y))
+		return (0);
+	if (data->map[y][x] == 'D' && data->trigger == 1)
+	{
+		data->map[y][x] = 'O';
+		data->trigger = 0;
+		return (1);
+	}
+	if (data->map[y][x] == 'O' && data->trigger == 1)
+	{
+		data->map[y][x] = 'D';
+		data->trigger = 0;
+		return (1);
+	}
+	return (0);
+}
+
 /* render:
  * Check si la demande d'un mouvement a été enregistré puis aplique le mouvement .
  * Si il y a eu un mouvement refait un render de l'images.
@@ -88,5 +112,7 @@ int	render(t_data *data)
 	if (data->player.moved == 0)
 		return (0);
 	render_images(data);
+	if(BONUS && ft_opendoor(data) == 1)
+		return (0);
 	return (0);
 }
