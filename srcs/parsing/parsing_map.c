@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/03 10:35:18 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 13:17:47 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	init_parsing_map(t_map *map)
 	map->c_color[1] = -1;
 	map->c_color[2] = -1;
 	if (BONUS)
-		map->valid_elements = ft_strdup("01 SEWND");
+		map->valid_elements = ft_strdup("01 SEWND.");
 	else
 		map->valid_elements = ft_strdup("01 SEWN");
 	if (!map->valid_elements)
 		return (parsing_error(map, NULL, strerror(errno), ERROR));
 	if (BONUS)
-		map->valid_env = ft_strdup("P0SEWN");
+		map->valid_env = ft_strdup("D0SEWN.");
 	else
 		map->valid_env = ft_strdup("0SEWN");
 	if (!map->valid_env)

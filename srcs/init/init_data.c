@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:36:54 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/02 16:12:41 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/06 10:02:28 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ void	init_ray(t_ray *ray)
 	ray->draw_end = 0;
 }
 
+void	init_sprite(t_sprite *sprite)
+{
+	sprite->x = 0;
+	sprite->y = 0;
+}
+
 /* init_data:
 *	Initialise la structure data.
 */
@@ -77,4 +83,5 @@ void	init_data(t_data *data)
 	data->map_height = 0;
 	data->map_width = 0;
 	data->trigger = 0;
+	data->num_sprite = 0;
 }

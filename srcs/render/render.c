@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 11:27:17 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/06 10:05:26 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	render_raycast(t_data *data)
 void	render_images(t_data *data)
 {
 	render_raycast(data);
-	/*if (BONUS)
-		render_minimap(data);*/
+	// if (BONUS)
+	// 	render_minimap(data);
 }
 
 int		ft_opendoor(t_data *data)

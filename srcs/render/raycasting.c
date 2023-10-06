@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:03:29 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 11:06:18 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/06 10:03:06 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,11 @@ void	calculate_line_height(t_ray *ray, t_data *data, t_player *player)
 	ray->wall_x -= floor(ray->wall_x);
 }
 
+// void	sprite_casting(t_data *data, t_texinfo *tex, t_ray *ray, int x)
+// {
+
+// }
+
 /* raycasting:
  * calcule le raycasting
  */
@@ -144,6 +149,7 @@ int	raycasting(t_player *player, t_data *data)
 		perform_dda(data, &ray);
 		calculate_line_height(&ray, data, player);
 		update_texture_pixels(data, &data->texinfo, &ray, x);
+		// sprite_casting(&ray, data, player, x);
 		x++;
 	}
 	return (SUCCESS);
