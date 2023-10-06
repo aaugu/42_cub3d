@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   key_macos.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:13:50 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/11 10:23:31 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/03 13:41:19 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEY_MACOS_H
 # define KEY_MACOS_H
+
+#define M				46
 
 # define ARROW_LEFT		123
 # define ARROW_RIGHT	124

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 11:27:17 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/06 09:26:52 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "bonus.h"
+#include "minimap.h"
 
 void	set_image_pixel(t_img *image, int x, int y, int color)
 {
@@ -72,8 +73,8 @@ void	render_raycast(t_data *data)
 void	render_images(t_data *data)
 {
 	render_raycast(data);
-	/*if (BONUS)
-		render_minimap(data);*/
+	if (BONUS && data->minimap)
+		render_minimap(data);
 }
 
 int		ft_opendoor(t_data *data)
