@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 13:56:42 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/06 09:25:31 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,6 @@ int		mouse_motion_handler(int x, int y, t_data *data);
 
 /* render/render.c */
 void	render_images(t_data *data);
-void	render_minimap(t_data *data);
 int		render(t_data *data);
 
 /* render/raycasting.c */

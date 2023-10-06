@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:43:23 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/03 14:50:13 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/06 09:25:22 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,4 @@ void	print_pixel(t_data *d, int x, int y, unsigned long color)
 		j = 10;
 		i++;
 	}
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 10, y * MMAP_PX + 10, color);
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 10, y * MMAP_PX + 11, color);
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 10, y * MMAP_PX + 12, color);
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 10, y * MMAP_PX + 13, color);
-
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 11, y * MMAP_PX + 10, color);
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 11, y * MMAP_PX + 11, color);
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 11, y * MMAP_PX + 12, color);
-	// mlx_pixel_put(d->mlx, d->win, x * MMAP_PX + 11, y * MMAP_PX + 13, color);
-
 }

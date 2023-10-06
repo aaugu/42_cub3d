@@ -6,12 +6,13 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 14:07:30 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/06 09:26:52 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "bonus.h"
+#include "minimap.h"
 
 void	set_image_pixel(t_img *image, int x, int y, int color)
 {
