@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:43:23 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/06 16:34:13 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/09 09:33:05 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	draw_minimap(t_img *minimap, t_data *data)
 		(int)floor(data->player.pos_y) * MMAP_TILE_SIZE, 'P');
 }
 
-void	draw_minimap_tile(t_img *minimap, int x, int y, char pixel_type)
+void	draw_minimap_tile(t_img *mmap, int x, int y, char pixel_type)
 {
 	int	i;
 	int	j;
@@ -65,13 +65,13 @@ void	draw_minimap_tile(t_img *minimap, int x, int y, char pixel_type)
 		while (i < MMAP_TILE_SIZE)
 		{
 			if (pixel_type == '1')
-				minimap->addr[((y + j) * minimap->size_line) + x + i] = MMAP_BLUE;
+				mmap->addr[((y + j) * mmap->size_line) + x + i] = MMAP_BLUE;
 			else if (pixel_type == '0')
-				minimap->addr[((y + j) * minimap->size_line) + x + i] = MMAP_GRAY;
+				mmap->addr[((y + j) * mmap->size_line) + x + i] = MMAP_GRAY;
 			else if (pixel_type == 'D' || pixel_type == 'O')
-				minimap->addr[((y + j) * minimap->size_line) + x + i] = MMAP_WHITE;
+				mmap->addr[((y + j) * mmap->size_line) + x + i] = MMAP_WHITE;
 			else if (pixel_type == 'P')
-				minimap->addr[((y + j) * minimap->size_line) + x + i] = MMAP_RED;
+				mmap->addr[((y + j) * mmap->size_line) + x + i] = MMAP_RED;
 			else
 				return ;
 			i++;
