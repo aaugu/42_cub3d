@@ -26,6 +26,7 @@ SRC		=	main \
 			init/init_mlx \
 			init/init_texture \
 			minimap/minimap \
+			minimap/test \
 			mouvement/player_move \
 			parsing/parsing_error \
 			parsing/parsing_map_checks \

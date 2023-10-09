@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:37:15 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/06 09:25:21 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/06 16:35:23 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,18 @@
 /*							MACRO											*/
 /* ***********************************************************************	*/
 
-# define PIXEL 4
-# define OFFSET_MIN 10
-# define OFFSET_MAX 14
+# define MMAP_TILE_SIZE 4
+# define MMAP_OFFSET 10
+# define MMAP_BLUE 0x00308F
+# define MMAP_GRAY 0x303030
+# define MMAP_WHITE 0xADD8E6
+# define MMAP_RED 0xFF0000
+
+/* ***********************************************************************	*/
+/*							STRUCTURES										*/
+/* ***********************************************************************	*/
 
 void	render_minimap(t_data *data);
+// int		test(void);
 
 #endif

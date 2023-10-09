@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/03 14:33:08 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/06 16:08:25 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,16 +126,25 @@ void	listen_for_input(t_data *data)
 	data->player.plane_x = 0.66;	//		 0.66		-0.66		0			 0
 	data->player.plane_y = 0;		//		 0			 0			0.66		-0.66
 */
+
+#include "minimap.h"
+
 int	main(int ac, char **av)
 {
 	t_data	data;
 
-	(void)av;
+	// (void) ac;
+	// (void) av;
+	// test();
 	if (ac != 2 || extension_valid(av[1]) == false)
 		return (err_msg("Usage", ERR_USAGE, 1));
 	init_data(&data);
 	if (get_parsing_infos(&data, av[1]) == ERR)
 		return (ERR);
+	// int i = 0;
+	// printf("map height : %d\n", data.map_height);
+	// while (i++ < data.map_height)
+	// 	printf("%sEOF\n", data.map[i]);
 	init_mlx(&data);
 	init_textures(&data);
 	print_controls();
