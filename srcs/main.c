@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/10 13:44:24 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:16:05 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,10 @@ void	listen_for_input(t_data *data)
 {
 	mlx_hook(data->win, CLIENTMESSAGE, 0L, quit_cub3d, data);
 	mlx_hook(data->win, DESTROYNOTIFY, 0L, quit_cub3d, data);
-	mlx_hook(data->win, KEYPRESS, 1L<<0, key_press_handler, data);
-	mlx_hook(data->win, KEYRELEASE, 1L<<1, key_release_handler, data);
+	mlx_hook(data->win, KEYPRESS, 1L << 0, key_press_handler, data);
+	mlx_hook(data->win, KEYRELEASE, 1L << 1, key_release_handler, data);
 	if (BONUS)
-		mlx_hook(data->win, MOTIONNOTIFY, 1L<<6,
+		mlx_hook(data->win, MOTIONNOTIFY, 1L << 6,
 			mouse_motion_handler, data);
 }
 
