@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:44:12 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/29 11:22:19 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/06 15:02:21 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	get_parsing_infos(t_data *data, char *filename)
 		return (parsing_error(&map, NULL, strerror(errno), errno));
 	data->player.pos_x = (double) map.player_x + 0.5;
 	data->player.pos_y = (double) map.player_y + 0.5;
+	data->sprite.x = data->player.pos_x;
+	data->sprite.y = data->player.pos_y;
 	data->map[map.player_y][map.player_x] = '0';
 	get_player_orientation(&data->player, map.orientation);
 	if (get_textures(&data->texinfo, &map))

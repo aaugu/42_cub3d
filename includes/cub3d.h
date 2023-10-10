@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 09:58:06 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 12:01:29 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,12 @@ typedef struct s_ray
 	int		draw_end;
 }	t_ray;
 
+typedef struct s_sprite
+{
+	double		x;
+	double		y;
+}	t_sprite;
+
 typedef struct s_data
 {
 	void		*mlx;				// pointeur de l'affichage
@@ -138,6 +144,9 @@ typedef struct s_data
 	t_player	player;				// info sur le player
 	t_ray		ray;				// raycasting
 	bool		trigger;
+	t_sprite	sprite;
+	long		timer;
+	bool		trig;
 }	t_data;
 
 /* ***********************************************************************	*/

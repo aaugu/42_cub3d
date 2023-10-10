@@ -63,7 +63,7 @@ $(NAME):	$(MLX) $(LIBFT) $(OBJS)
 			@($(CC) $(FLAGS) -DBONUS=$(BONUS) $(INCLUDE) $(OBJS) $(LIB) -o $(NAME))
 			@echo "$(CYAN) [ OK ] | $(CYAN_B)cub3d$(END) $(CYAN)ready!$(END)"
 
-bonus:		fclean
+bonus:		
 			make all BONUS=1
 
 $(LIBFT):

@@ -6,11 +6,12 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:03:29 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 11:06:18 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 11:58:34 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "orientation.h"
 
 /*  init_raycasting_info :
  *  camera_x		> visée de la camera (quelle position dans l'axe x de 
@@ -40,8 +41,8 @@ void	init_raycasting_info(int x, t_ray *ray, t_player *player)
  * sidedist_x/y		> distance point de depart du rayon 
  * 					  à la prochaine position x/y (de la case)
  * 
- * si x ou y < 0 le prochain x/y est sur la gauche
- * si x ou y > 0 le prochain x/y est sur la droite
+ * sx x ou y < 0 le prochain x/y est sur la gauche
+ * sx x ou y > 0 le prochain x/y est sur la droite
  */
 void	set_dda(t_ray *ray, t_player *player)
 {
@@ -127,6 +128,69 @@ void	calculate_line_height(t_ray *ray, t_data *data, t_player *player)
 	ray->wall_x -= floor(ray->wall_x);
 }
 
+void	sprite_casting(t_data *data, t_texinfo *tex, t_ray *ray, int x)
+{
+	int		y;
+	double	zbuffer[data->win_width];
+	double	sprite_rela_x;
+	double	sprite_rela_y;
+	double	invDet;
+	double	transform_x;
+	double	transform_y;
+	int		spritescreen_x;
+	int		sprite_height;
+	int		draw_start_y;
+	int		draw_end_y;
+	int		sprite_width;
+	int		draw_start_x;
+	int		draw_end_x;
+	int		tex_x;
+	int		tex_y;
+	int		d;
+	unsigned long		color;
+
+	zbuffer[x] = ray->wall_dist;
+	sprite_rela_x = data->sprite.x - data->player.pos_x;
+	sprite_rela_y = data->sprite.y - data->player.pos_y;
+	invDet = (1 / (data->player.plane_x * data->player.dir_y - data->player.dir_x * data->player.plane_y));
+	transform_x = invDet * (data->player.dir_y * sprite_rela_x - data->player.dir_x * sprite_rela_y);
+	transform_y = invDet * (data->player.plane_x * sprite_rela_y - data->player.plane_y * sprite_rela_x);
+	spritescreen_x = (int)((data->win_width / 2) * (1 + transform_x / transform_y));
+	sprite_height = abs((int)(data->win_height / (transform_y)));
+	draw_start_y = ((-1 * sprite_height) / 2) + (data->win_height / 2);
+	if (draw_start_y < 0)
+		draw_start_y = 0;
+	draw_end_y = (sprite_height / 2) + (data->win_height / 2);
+	if (draw_end_y >= data->win_height)
+		draw_end_y = data->win_height - 1;
+	sprite_width = abs((int)(data->win_width / (transform_y)));
+	draw_start_x = ((-1 * sprite_width) / 2) + (spritescreen_x);
+	if (draw_start_x < 0)
+		draw_start_x = 0;
+	draw_end_x = (sprite_width / 2) + (spritescreen_x);
+	if (draw_end_x >= data->win_width)
+		draw_end_x = data->win_width - 1;
+	y = draw_start_y;
+	if (x < draw_end_x && x >= draw_start_x)
+	{
+		tex_x = (int)(256 * (x - (-1 * sprite_width / 2 + spritescreen_x)) * tex->size / sprite_width) / 256;
+		if(transform_y > 0 && x > 0 && x < data->win_width && transform_y < zbuffer[x])
+		{
+			while (y < draw_end_y)
+			{
+				d = (y) * 256 - data->win_height * 128 + sprite_height * 128;
+				tex_y = ((d * tex->size) / sprite_height) / 256;
+				color = data->textures[SPRITE1][tex->size * tex_y + tex_x];
+				if (data->trig == 1)
+					color = data->textures[SPRITE2][tex->size * tex_y + tex_x];;
+				if ((color & 0x00FFFFFF) != 0)
+					data->texture_pixels[y][x] = color;
+				y++;
+			}
+		}
+	}
+}
+
 /* raycasting:
  * calcule le raycasting
  */
@@ -144,6 +208,7 @@ int	raycasting(t_player *player, t_data *data)
 		perform_dda(data, &ray);
 		calculate_line_height(&ray, data, player);
 		update_texture_pixels(data, &data->texinfo, &ray, x);
+		sprite_casting(data, &data->texinfo, &ray, x);
 		x++;
 	}
 	return (SUCCESS);
