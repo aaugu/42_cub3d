@@ -2,6 +2,17 @@
 	"files.associations": {
 		"libft.h": "c",
 		"algorithm": "c",
-		"bonus.h": "c"
+		"bonus.h": "c",
+		"fcntl.h": "c",
+		"cub3d.h": "c",
+		"array": "c",
+		"iterator": "c",
+		"string": "c",
+		"string_view": "c",
+		"vector": "c",
+		"parsing_state_machine.h": "c",
+		"parsing_map.h": "c",
+		"orientation.h": "c",
+		"chrono": "c"
 	}
 }
