@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:28:26 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/10 14:42:37 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 15:20:55 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ void	listen_for_input(t_data *data)
 	mlx_hook(data->win, KEYPRESS, 1L << 0, key_press_handler, data);
 	mlx_hook(data->win, KEYRELEASE, 1L << 1, key_release_handler, data);
 	if (BONUS)
-		mlx_hook(data->win, MOTIONNOTIFY, 1L << 6,
-			mouse_motion_handler, data);
+		mlx_hook(data->win, MOTIONNOTIFY, 1L << 6, mouse_motion_handler, data);
 }
 
 /* key_press_handler:

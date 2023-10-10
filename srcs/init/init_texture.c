@@ -6,13 +6,13 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:40:35 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 14:31:14 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 15:05:02 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "orientation.h"
-# include "bonus.h"
+#include "bonus.h"
 
 int	*xpm_to_img(t_data *data, char *path)
 {
