@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 13:12:11 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:09:56 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,10 +179,6 @@ void	init_texture_img(t_data *data, t_img *image, char *path);
 /* init/init_texture.c*/
 void	init_textures(t_data *data);
 void	init_texinfo(t_texinfo *textures);
-
-/* movement/player_move.c */
-int		move_player(t_data *data);
-int		mouse_motion_handler(int x, int y, t_data *data);
 
 /* render/render.c */
 void	render_images(t_data *data);

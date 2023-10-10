@@ -19,14 +19,16 @@ OBJ_D 	=	objs/
 
 SRC		=	main \
 			error \
-			cub3d/init_cub3d \
 			exit/exit \
 			exit/free_data \
+			init/get_parsing_infos
 			init/init_data \
 			init/init_mlx \
 			init/init_texture \
 			minimap/minimap \
-			mouvement/player_move \
+			movement/linear \
+			movement/player_movement \
+			movement/rotation \
 			parsing/parsing_error \
 			parsing/parsing_map_checks \
 			parsing/parsing_map_infos \
