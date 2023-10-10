@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:53:16 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 14:25:38 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 15:54:33 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "orientation.h"
+#include "bonus.h"
 
 void	set_image_pixel(t_img *image, int x, int y, int color)
 {

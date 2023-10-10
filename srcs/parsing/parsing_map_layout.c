@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:32:38 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 11:07:17 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 15:30:10 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	fill_with_void(char *map_line, int size, int width);
 
 int	parsing_map_layout(t_map *map, char *filename, int map_position)
 {
-	int	fd;
-	int	i;
+	int		fd;
+	int		i;
+	char	*line;
 
 	map->layout = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!map->layout)
@@ -33,7 +34,10 @@ int	parsing_map_layout(t_map *map, char *filename, int map_position)
 		return (parsing_error(map, filename, strerror(errno), ERROR));
 	i = 1;
 	while (i++ < map_position)
-		get_next_line(fd);
+	{
+		line = get_next_line(fd);
+		free(line);
+	}
 	if (fill_map(map, fd) == ERROR)
 	{
 		close(fd);

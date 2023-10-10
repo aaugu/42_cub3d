@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 15:25:17 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 15:54:15 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
-# include "colors.h"
-# include "bonus.h"
 # include <errno.h>
 # include <math.h>
 # include <stdbool.h>
@@ -168,6 +166,9 @@ typedef struct s_data
 /*							FUNCTIONS										*/
 /* ***********************************************************************	*/
 
+/* print_controls.c */
+void	print_controls(void);
+
 /* exit/exit.c */
 void	clean_exit(t_data *data, int code);
 int		quit_cub3d(t_data *data);
@@ -192,10 +193,6 @@ void	init_texture_img(t_data *data, t_img *image, char *path);
 /* init/init_texture.c*/
 void	init_textures(t_data *data);
 void	init_texinfo(t_texinfo *textures);
-
-/* movement/player_move.c */
-int		move_player(t_data *data);
-int		mouse_motion_handler(int x, int y, t_data *data);
 
 /* render/render.c */
 void	render_images(t_data *data);

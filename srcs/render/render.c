@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:30:08 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 14:24:11 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 15:52:51 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "bonus.h"
 #include "minimap.h"
+#include "movement.h"
 
 void	set_frame_image_pixel(t_data *data, t_img *image, int x, int y)
 {

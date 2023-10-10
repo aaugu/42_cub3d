@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:04:34 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 13:36:32 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:38:42 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "colors.h"
 
 int	err_msg(char *detail, char *str, int code)
 {

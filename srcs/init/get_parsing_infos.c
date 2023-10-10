@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_cub3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:44:12 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/06 15:02:21 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:52:22 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,10 @@
 #include "cub3d.h"
 #include "libft.h"
 
-// int				get_parsing_infos(t_data *data, char *filename);
 int				get_textures(t_texinfo *textures, t_map *map);
 unsigned long	convert_rgb_to_hex(int	*rgb);
 void			get_player_orientation(t_player *player, int orientation);
 void			get_player_orientation_2(t_player *player, int orientation);
-
-// int	init_game(t_data *data, char *filename)
-// {
-// 	init_data(data);
-// 	if (get_parsing_infos(data, filename) == ERR)
-// 		return (ERR);
-// 	init_mlx(data);
-// 	init_textures(data);
-// 	return (SUCCESS);
-// }
 
 int	get_parsing_infos(t_data *data, char *filename)
 {
