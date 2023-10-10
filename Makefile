@@ -40,6 +40,8 @@ SRC		=	main \
 			parsing/state_machine_states \
 			render/raycasting \
 			render/render \
+			render/sprite \
+			render/dda \
 			render/texture
 
 SRCS	=	$(addprefix  $(SRC_D), $(addsuffix .c, $(SRC)))

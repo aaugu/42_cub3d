@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 14:32:36 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 15:54:15 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,21 @@ typedef struct s_sprite
 {
 	double		x;
 	double		y;
+	int			*zbuffer;
+	double		rela_x;
+	double		rela_y;
+	double		inv_det;
+	double		trans_x;
+	double		trans_y;
+	int			s_screen_x;
+	int			draw_start_y;
+	int			draw_end_y;
+	int			sprite_h;
+	int			sprite_w;
+	int			draw_start_x;
+	int			draw_end_x;
+	int			tex_x;
+	int			tex_y;
 }	t_sprite;
 
 typedef struct s_data
@@ -183,12 +198,21 @@ void	init_texinfo(t_texinfo *textures);
 void	render_images(t_data *data);
 int		render(t_data *data);
 
+/* render/sprite.c */
+void	sprite_casting(t_data *data, t_sprite *sprite, t_ray *ray, int x);
+
+/* render/sprite.c */
+void	perform_dda(t_data *data, t_ray *ray);
+void	set_dda(t_ray *ray, t_player *player);
+
 /* render/raycasting.c */
 int		raycasting(t_player *player, t_data *data);
 
 /* render/texture.c */
 void	init_texture_pixels(t_data *data);
 void	update_texture_pixels(t_data *data, t_texinfo *tex, t_ray *ray, int x);
+int		ft_opendoor(t_data *data);
+void	set_image_pixel(t_img *image, int x, int y, int color);
 
 /* error.c */
 int		err_msg(char *detail, char *str, int code);
