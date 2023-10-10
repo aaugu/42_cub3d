@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/10 14:31:55 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 16:34:06 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ bool	player_pos_dup(t_map *map, char *str, int y)
 
 bool	map_closed(char **map, int x, int y, char *valid_env)
 {
-	if (map[y][x] == ' ' )
+	if (map[y][x] == ' ' || map[y][x] == '\0')
 		return (false);
 	else if (strchr(valid_env, map[y][x]))
 	{

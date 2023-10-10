@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:40:35 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 15:05:02 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 16:14:43 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	init_textures(t_data *data)
 	data->textures[WEST] = xpm_to_img(data, data->texinfo.west);
 	if (BONUS)
 	{
-		data->textures[DOOR] = xpm_to_img(data, "textures/test/door.xpm");
+		data->textures[DOOR] = xpm_to_img(data, "textures/wolf/eagle.xpm");
 		data->textures[SPRITE1] = xpm_to_img(data, "sprites/cactuar_1.xpm");
 		data->textures[SPRITE2] = xpm_to_img(data, "sprites/cactuar_2.xpm");
 	}
