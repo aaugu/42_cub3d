@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/06 09:25:31 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:12:11 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -123,6 +124,12 @@ typedef struct s_ray
 	int		draw_end;
 }	t_ray;
 
+typedef struct s_sprite
+{
+	double		x;
+	double		y;
+}	t_sprite;
+
 typedef struct s_data
 {
 	void		*mlx;				// pointeur de l'affichage
@@ -138,6 +145,9 @@ typedef struct s_data
 	t_player	player;				// info sur le player
 	t_ray		ray;				// raycasting
 	bool		trigger;
+	t_sprite	sprite;
+	long		timer;
+	bool		trig;
 	bool		minimap;
 }	t_data;
 

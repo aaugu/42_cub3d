@@ -26,7 +26,6 @@ SRC		=	main \
 			init/init_mlx \
 			init/init_texture \
 			minimap/minimap \
-			minimap/test \
 			mouvement/player_move \
 			parsing/parsing_error \
 			parsing/parsing_map_checks \
@@ -66,7 +65,7 @@ $(NAME):	$(MLX) $(LIBFT) $(OBJS)
 			@($(CC) $(FLAGS) -DBONUS=$(BONUS) $(INCLUDE) $(OBJS) $(LIB) -o $(NAME))
 			@echo "$(CYAN) [ OK ] | $(CYAN_B)cub3d$(END) $(CYAN)ready!$(END)"
 
-bonus:		fclean
+bonus:		
 			make all BONUS=1
 
 $(LIBFT):

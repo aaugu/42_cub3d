@@ -3,16 +3,16 @@
 		"libft.h": "c",
 		"algorithm": "c",
 		"bonus.h": "c",
-		"minimap.h": "c",
-		"__hash_table": "c",
-		"__split_buffer": "c",
+		"fcntl.h": "c",
+		"cub3d.h": "c",
 		"array": "c",
-		"bitset": "c",
-		"initializer_list": "c",
+		"iterator": "c",
 		"string": "c",
 		"string_view": "c",
-		"unordered_map": "c",
-		"utility": "c",
-		"vector": "c"
+		"vector": "c",
+		"parsing_state_machine.h": "c",
+		"parsing_map.h": "c",
+		"orientation.h": "c",
+		"chrono": "c"
 	}
 }

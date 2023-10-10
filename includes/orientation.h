@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:29:22 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/02 14:52:53 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 11:19:03 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef enum e_orientation
 	SOUTH,
 	EAST,
 	DOOR,
-	DOOROPEN,
+	SPRITE1,
+	SPRITE2,
 	UNDEFINED,
 }	t_orientation;
 
