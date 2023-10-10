@@ -6,9 +6,10 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:54:01 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 12:01:29 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:12:11 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -147,6 +148,7 @@ typedef struct s_data
 	t_sprite	sprite;
 	long		timer;
 	bool		trig;
+	bool		minimap;
 }	t_data;
 
 /* ***********************************************************************	*/

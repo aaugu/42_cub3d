@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:55:53 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/03 13:17:47 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:09:20 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 #include "parsing_map.h"
 #include "bonus.h"
 #include "libft.h"
+
+int	parsing_map(t_map *map, char *map_file)
+{
+	int	map_position;
+
+	map_position = parsing_map_infos(map, map_file);
+	if (map_position == ERROR)
+		return (ERROR);
+	if (parsing_map_layout(map, map_file, map_position) == ERROR)
+		return (ERROR);
+	if (parsing_map_checks(map) == ERROR)
+		return (ERROR);
+	return (EXIT_SUCCESS);
+}
 
 int	init_parsing_map(t_map *map)
 {
@@ -42,20 +56,6 @@ int	init_parsing_map(t_map *map)
 		map->valid_env = ft_strdup("0SEWN");
 	if (!map->valid_env)
 		return (parsing_error(map, NULL, strerror(errno), ERROR));
-	return (EXIT_SUCCESS);
-}
-
-int	parsing_map(t_map *map, char *map_file)
-{
-	int	map_position;
-
-	map_position = parsing_map_infos(map, map_file);
-	if (map_position == ERROR)
-		return (ERROR);
-	if (parsing_map_layout(map, map_file, map_position) == ERROR)
-		return (ERROR);
-	if (parsing_map_checks(map) == ERROR)
-		return (ERROR);
 	return (EXIT_SUCCESS);
 }
 

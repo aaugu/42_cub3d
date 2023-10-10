@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:36:54 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 11:32:35 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:13:50 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,5 @@ void	init_data(t_data *data)
 	data->trigger = 0;
 	data->timer = 0;
 	data->trig = 0;
+	data->minimap = 1;
 }
