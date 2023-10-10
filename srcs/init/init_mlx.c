@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:18:48 by lvogt             #+#    #+#             */
-/*   Updated: 2023/09/25 11:12:36 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:37:10 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_texture_img(t_data *data, t_img *image, char *path)
 void	init_mlx(t_data *data)
 {
 	data->mlx = mlx_init();
-    if (!data->mlx)
+	if (!data->mlx)
 		clean_exit(data, err_msg("mlx", ERR_MLX_START, 1));
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "Cub3D");
 	if (!data->win)

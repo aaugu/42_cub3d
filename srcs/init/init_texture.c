@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:40:35 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 11:24:59 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:38:16 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void	init_textures(t_data *data)
 	if (BONUS)
 	{
 		data->textures[DOOR] = xpm_to_img(data, "textures/test/door.xpm");
-		data->textures[SPRITE1] = xpm_to_img(data, "textures/wolf/greenlight.xpm");
+		data->textures[SPRITE1] = xpm_to_img(data,
+				"textures/wolf/greenlight.xpm");
 		data->textures[SPRITE2] = xpm_to_img(data, "textures/wolf/barrel.xpm");
 	}
 }

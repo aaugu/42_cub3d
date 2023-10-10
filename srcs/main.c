@@ -6,7 +6,7 @@
 /*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 09:29:21 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/10 13:12:16 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:34:22 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	key_press_handler(int key, t_data *data)
 		data->player.rotate -= 1;
 	if (key == ARROW_RIGHT)
 		data->player.rotate += 1;
-	if (key == M)
+	if (key == MAINP_M)
 		data->minimap = !data->minimap;
 	if (key == MAINP_SPACE)
 	{
@@ -109,12 +109,12 @@ int	key_release_handler(int key, t_data *data)
  */
 void	listen_for_input(t_data *data)
 {
-	mlx_hook(data->win, ClientMessage, NoEventMask, quit_cub3d, data);
-	mlx_hook(data->win, DestroyNotify, NoEventMask, quit_cub3d, data);
-	mlx_hook(data->win, KeyPress, KeyPressMask, key_press_handler, data);
-	mlx_hook(data->win, KeyRelease, KeyReleaseMask, key_release_handler, data);
+	mlx_hook(data->win, CLIENTMESSAGE, 0L, quit_cub3d, data);
+	mlx_hook(data->win, DESTROYNOTIFY, 0L, quit_cub3d, data);
+	mlx_hook(data->win, KEYPRESS, 1L<<0, key_press_handler, data);
+	mlx_hook(data->win, KEYRELEASE, 1L<<1, key_release_handler, data);
 	if (BONUS)
-		mlx_hook(data->win, MotionNotify, PointerMotionMask,
+		mlx_hook(data->win, MOTIONNOTIFY, 1L<<6,
 			mouse_motion_handler, data);
 }
 
