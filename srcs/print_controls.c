@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:12:56 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/10 14:25:51 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:47:20 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_controls(void)
 	if (BONUS)
 	{
 		printf(CYAN "\tMouse" RESET ": rotate view");
-		printf(CYAN "\tM" RESET ": display on/off minimap");
+		printf(CYAN "\tM" RESET ": display on/off minimap\n");
 		printf(CYAN "\tspace" RESET ": open/close door");
 	}
 	printf(CYAN "\tesc" RESET ": close cub3D\n");
