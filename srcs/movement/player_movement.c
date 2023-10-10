@@ -6,14 +6,15 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:58:05 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/10 14:03:36 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:43:08 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "movement.h"
 
 /* move_player:
- * modifi les données en fonction de l'ordre de déplacement reçu.
+ * modifie les données en fonction de l'ordre de déplacement reçu.
  * 
  * move_player :	data->player.pos_x/y	data->player.dir_x/y
  * rotate_player :	data->player.dir_x/y	data->player.plane_x/y 

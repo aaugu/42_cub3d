@@ -6,11 +6,12 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:55:22 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 14:03:51 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:31:29 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "bonus.h"
 
 int	check_pos(t_data *data, double pos_x, double pos_y);
 

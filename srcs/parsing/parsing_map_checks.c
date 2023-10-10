@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map_checks.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:52:58 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/25 11:12:34 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:31:55 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
 #include <stdbool.h>
 #include "parsing_map.h"
-#include "bonus.h"
 #include "libft.h"
 
 bool	elements_valid(t_map *map, char *valid_elements);

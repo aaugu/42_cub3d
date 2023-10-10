@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:05:14 by aaugu             #+#    #+#             */
-/*   Updated: 2023/10/10 14:08:44 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 14:40:20 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int	move_player(t_data *data);
 
 int	move_player_forward(t_data *data);
-int	move_player_bakward(t_data *data);
+int	move_player_backward(t_data *data);
 int	move_player_right(t_data *data);
 int	move_player_left(t_data *data);
 

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   listeners.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 12:04:34 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 14:38:42 by aaugu            ###   ########.fr       */
+/*   Created: 2023/10/10 14:36:49 by aaugu             #+#    #+#             */
+/*   Updated: 2023/10/10 14:37:16 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "colors.h"
+#ifndef LISTENERS_H
+# define LISTENERS_H
 
-int	err_msg(char *detail, char *str, int code)
-{
-	ft_putstr_fd(RED "cub3D: Error", 2);
-	if (detail)
-	{
-		ft_putstr_fd(": ", 2);
-		ft_putstr_fd(detail, 2);
-	}
-	if (str)
-	{
-		ft_putstr_fd(": ", 2);
-		ft_putstr_fd(str, 2);
-	}
-	ft_putstr_fd("\n" RESET, 2);
-	return (code);
-}
+# include "cub3d.h"
+
+/* ***********************************************************************	*/
+/*							FUNCTIONS										*/
+/* ***********************************************************************	*/
+
+void	listen_for_input(t_data *data);
+
+#endif
