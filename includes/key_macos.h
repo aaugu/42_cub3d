@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   key_macos.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
+/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 10:13:50 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/03 13:41:19 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/10 13:34:56 by lvogt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEY_MACOS_H
 # define KEY_MACOS_H
-
-#define M				46
 
 # define ARROW_LEFT		123
 # define ARROW_RIGHT	124
@@ -36,6 +34,7 @@
 # define MAINP_D		2
 # define MAINP_R		15
 # define MAINP_P		35
+# define MAINP_M		46
 # define MAINP_DOT		47
 # define MAINP_1		18
 # define MAINP_2		19
@@ -61,17 +60,12 @@
 # define NUMP_9			92
 # define NUMP_0			82
 
-# define KeyPress		02
-# define KeyRelease		03
-# define ButtonPress	04
-# define ButtonRelease	05
-# define MotionNotify	06
-# define DestroyNotify	17
-# define ClientMessage	33
-
-# define NoEventMask		0L
-# define KeyPressMask		1L<<0
-# define KeyReleaseMask		1L<<1
-# define PointerMotionMask	1L<<6
+# define KEYPRESS		02
+# define KEYRELEASE		03
+# define BUTTONPRESS	04
+# define BUTTONRELEASE	05
+# define MOTIONNOTIFY	06
+# define DESTROYNOTIFY	17
+# define CLIENTMESSAGE	33
 
 #endif
