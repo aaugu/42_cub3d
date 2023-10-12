@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvogt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:08:32 by lvogt             #+#    #+#             */
-/*   Updated: 2023/10/10 15:37:35 by lvogt            ###   ########.fr       */
+/*   Updated: 2023/10/12 12:50:03 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ void	sprite_casting(t_data *d, t_sprite *s, t_ray *r, int x)
 			y++;
 		}
 	}
+	free(d->sprite.zbuffer);
 }

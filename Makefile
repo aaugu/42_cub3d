@@ -8,7 +8,7 @@ CYAN_B	=	\033[1;96m
 
 NAME	=	cub3D
 CC		=	gcc
-FLAGS	=	-Wall -Wextra -Werror -g3 -fsanitize=address
+FLAGS	=	-Wall -Wextra -Werror #-g3 -fsanitize=address
 RM		=	rm -rf
 
 # BONUS TOGGLE
