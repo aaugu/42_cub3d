@@ -6,7 +6,7 @@
 /*   By: aaugu <aaugu@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:26:29 by aaugu             #+#    #+#             */
-/*   Updated: 2023/09/21 11:07:27 by aaugu            ###   ########.fr       */
+/*   Updated: 2023/10/12 10:01:50 by aaugu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ int	get_rgb(t_state_machine *fsm, int *rgb, int i)
 	while (fsm->line[i] != ' ' && fsm->line[i] && j < 3)
 	{
 		rgb[++j] = 0;
-		while (fsm->line[i] != ',' && fsm->line[i] != ' ' && fsm->line[i]
-			&& fsm->line[i] != '\n')
+		while (fsm->line[i] != ',' && fsm->line[i] && fsm->line[i] != '\n')
 		{
 			if (fsm->line[i] >= '0' || fsm->line[i] <= '9')
 				rgb[j] = (rgb[j] * 10) + (fsm->line[i] - '0');
